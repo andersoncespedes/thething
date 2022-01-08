@@ -103,10 +103,17 @@
 			array_pop($data);
 			return $data;	
 		}
-			public function getEstadisticaByInteg($data1, $data2)
-		{
-			
-			$query  = "SELECT id_estadistica, est_integ, nombre_act FROM estadistica LIMIT $data2,$data1";
+			public function getEstadisticaByInteg($tamaño, $begin)
+		{	
+			$cont = 0;
+			$contador = $this->getEstadisticaByN();
+			foreach($contador as $column => $value){
+				$cont++;
+			}
+			$retro = $cont - $begin;
+			$comienzo = $cont - $tamaño;
+			echo $retro ." " .$comienzo;
+			$query  = "SELECT id_estadistica, est_integ, nombre_act FROM estadistica LIMIT $comienzo,$retro";
 			$result = mysqli_query($this->link, $query);
 			$data   = array();	
 			while ($data[] = mysqli_fetch_assoc($result));
