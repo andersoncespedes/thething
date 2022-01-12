@@ -14,7 +14,7 @@
 		$estadistica_estm = $estadistica_estm->getMaesEst();
 		$estadistica_estu = $estadistica_estu->getUserEst();
 		$tamaño = 4;
-		$begin  = ($_GET['pag']-1) * $tamaño;
+		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$estadistica_integ = $estadistica_integ->getEstadisticaByInteg($tamaño, $begin);
 		$i = 0;
 		foreach ($estadistica_z as $column => $value) {	
@@ -109,9 +109,9 @@
 				<?php 
 		}
 		} 
-			if ($begin > 0 ) {?>
+			if ($begin - $tamaño >= 0 ) {?>
 				<a href="?pag=<?=$_GET['pag']-1?>" class = "btn btn-danger">ATRAS</a>
-			<?php } if (($begin + $tamaño) < $estadistica_est ) { ?>
+			<?php } if ($begin - $tamaño <= $estadistica_est ) { ?>
 			 <a href="?pag=<?=$_GET['pag']+1?>" class = "btn btn-success">SIGUIENTE</a>
 			 <?php }  ?>
 			</div>

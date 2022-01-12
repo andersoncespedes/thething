@@ -110,11 +110,18 @@
 			foreach($contador as $column => $value){
 				$cont++;
 			}
-			
-			$comienzo = $cont - $begin;
-			$retro = $cont + $comienzo;
-			echo $cont ." " .$comienzo ." " .$retro;
-			$query  = "SELECT id_estadistica, est_integ, nombre_act FROM estadistica LIMIT $comienzo,$retro";
+			if($begin == 0){
+				$begin = $cont;
+				$tamaño = $begin - $tamaño;
+			}
+			else{
+				$begin = $cont - $begin;
+				$tamaño = $begin - $tamaño;
+				if($tamaño < 0){
+					$tamaño = 0;
+				}
+			}
+			$query  = "SELECT id_estadistica, est_integ, nombre_act FROM estadistica LIMIT $tamaño,$begin";
 			$result = mysqli_query($this->link, $query);
 			$data   = array();	
 			while ($data[] = mysqli_fetch_assoc($result));
