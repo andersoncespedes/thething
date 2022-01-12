@@ -111,7 +111,7 @@
 		} 
 			if ($begin - $tamaño >= 0 ) {?>
 				<a href="?pag=<?=$_GET['pag']-1?>" class = "btn btn-danger">ATRAS</a>
-			<?php } if ($begin - $tamaño <= $estadistica_est ) { ?>
+			<?php } if ($begin + $tamaño < $estadistica_est ) { ?>
 			 <a href="?pag=<?=$_GET['pag']+1?>" class = "btn btn-success">SIGUIENTE</a>
 			 <?php }  ?>
 			</div>
