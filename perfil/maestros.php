@@ -31,6 +31,9 @@
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
 			header('location: ../index.php');
 		}
+		if ($_SESSION['cuenta'] != 'administrador') {
+			header('location: inicio.php');
+		}
 		if (isset($_GET['logout'])) {
 			session_destroy();
 			header('location: ../index.php');

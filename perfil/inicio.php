@@ -89,13 +89,14 @@
 
 			<div class="wall">
 			
-				
+			<?php if($_SESSION['cuenta'] == 'administrador'){?>
 				<div class="post">
 					<form action="newpost.php" method="GET">
 						<input type="text" name="pos" placeholder="CREAR POST"><input type="submit" name="">
+				
 					</form>
-
-				</div>
+			
+				</div>	<?php } ?>
 				<?php include "../php/acceso.php"; ?>
 				<?php  $e = 0;
 					if (count($actividad)>0) {
@@ -128,13 +129,14 @@
 					<b style="float: right;"> <span style="color: blue;">Maestro Responsable:</span> <?=$value['maestro_r'];?></b>
 					<span style="color: red;">Participantes: </span><?=$value['num_integ'];?>
 					<div class="option">
-						
+						<?php if($_SESSION['cuenta'] == 'administrador'){?>
 					<div class="opciones">
 					<a href="../php/actividades/actividad_controler.php?id=<?=$value['idenm'];?>&delete&img=<?=$value['imagen'];?>">ELIMINAR</a>
 				</div>
 				<div class="opciones" style="float: right;">
 					<a href="editar_actividad.php?id=<?=$value['idenm'];?>">EDITAR</a>
 				</div>
+				<?php } ?>
 			</div>
 				</div><span class = "r" style="display: none;">3</span>
 			<?php 
@@ -151,9 +153,10 @@
 					<ul>
 						<li><a href=""> ACTIVIDADES</a></li>
 						<li><a href="estadistica.php?pag=1"> ESTADISTICA</a></li>
+						<?php if($_SESSION['cuenta'] == 'administrador'){?>
 						<li><a href="maestros.php"> MAESTROS</a></li>
 						<li><a href="../php/respaldo/respaffl.php"> RESPALDO</a></li>
-						
+						<?php } ?>
 
 					</ul>
 				</div>
