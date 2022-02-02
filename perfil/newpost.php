@@ -107,7 +107,7 @@
 				</div>
 					<ul>
 						<li><a href=""> ACTIVIDADES</a></li>
-						<li><a href="estadistica.php"> ESTADISTICA</a></li>
+						<li><a href="estadistica.php?pag=1"> ESTADISTICA</a></li>
 						<li><a href="maestros.php"> MAESTROS</a></li>
 						<li><a href="../php/respaldo/respaffl.php"> RESPALDO</a></li>
 						

@@ -80,7 +80,67 @@
 	</head>
 	
 
-	
+	<div class="modal fade" id="ventana4">
+		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
+		<div class="col-md-5" style="margin: auto;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						
+						<h3 class="modal-title">INGRESE LOS SIGUIENTES DATOS</h3>
+						
+						
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<form action="../php/maestros/maestro_controler.php" method="POST" id="registro2" name ="registro2">
+							<div class="col-md-12">
+								<div class="form-group">
+								<label> Grado</label>
+								<select class = "form-control" name = "grado">
+									<option value = "1er Grado">1er Grado </option>
+									<option value = "2do Grado">2do Grado </option>
+									<option value = "3er Grado">3er Grado </option>
+									<option value = "4to Grado">4to Grado </option>
+									<option value = "5to Grado">5to Grado </option>
+									<option value = "6to Grado">6to Grado </option>
+								</select>			
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Seccion</label>
+								<select class = "form-control" name = "seccion">
+									<option value = "Seccion A">Seccion A</option>
+									<option value = "Seccion B">Seccion B</option>
+									<option value = "Seccion C">Seccion C</option>
+									<option value = "Seccion D">Seccion D</option>
+									<option value = "Seccion E">Seccion E</option>
+									<option value = "Seccion U">Seccion U</option>
+
+								</select>	
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Maestro</label>
+								<select class = "form-control" name = "seccion">
+								<?php foreach ($maestro as $key => $value) {?>
+									<option><?= $value['nombres'] ." " .$value['apellidos'];?></option>
+								<?php } ?>
+								</select>
+							</div>
+							</div>
+							<input type="submit" name="editar" class="btn btn-info btn-block" value="Ingresar">
+							</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 	<div class="modal fade" id="ventana">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
@@ -225,7 +285,7 @@
 	<?php include "../php/acceso2.php"; ?>
 			
 		</header>
-		<main class="container" style="display: flex; background-color: rgba(0,0,0,0);">
+		<main class="container" style="display: flex; background-color: rgba(0,0,0,0); flex-wrap:wrap;">
 
 			<div class="wall-p">
 					<div class="title-m">
@@ -268,13 +328,24 @@
 				</tr>
 
 					</table>
-				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar</a>
+				<a href="#ventana" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Maestro</a>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$nombres?>:
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
 				<?php } ?>
 			</div>
-
+			<div class="wall-p">
+					<div class="title-m">
+					<h2>GRADOS</h2>	
+					
+				<hr class="stylerf"><?php include "../php/acceso.php"; ?>
+			</div>
+				<a href="#ventana4" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Grado</a>
+				<?php if (isset($_GET['id'])) { ?>
+					<span style="float: right;"><?=$nombres?>:
+				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
+				<?php } ?>
+			</div>
 		</main>
 
 			<footer>
