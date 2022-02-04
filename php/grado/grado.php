@@ -1,7 +1,7 @@
 <?php
 	require "conexion.php";
 
-	class actividad
+	class grado
 	{
 		private $conn;
 		private $link;
@@ -10,18 +10,10 @@
 			$this->conn  = new conexion();
 			$this->link  = $this->conn->conectar();
 		}
-		public function getAct()
+	
+		public function getGrado()
 		{
-			$query  = "SELECT * FROM actividad";
-			$result = mysqli_query($this->link, $query);
-			$data   = mysqli_affected_rows($this->link); 
-			return $data;
-
-		}
-		public function getActividad()
-		{
-		
-			$query  = "SELECT * FROM actividad";
+			$query  = "SELECT * FROM grado";
 			$result = mysqli_query($this->link, $query);
 			$data   = array();	
 			while ($data[] = mysqli_fetch_assoc($result));
@@ -30,27 +22,15 @@
 			return $data;	
 		}
 
-		public function newpost($data)
+		public function newGrado($data)
 		{
-			$r 	    = rand(1,50);
-			$d      = rand(1,99999999) * $r / 3;
-			$foto 	= $_FILES['imagen']['name'];
-			$ruta 	= $_FILES['imagen']['tmp_name'];
-			$destino= "imagen/" .$foto;
-			copy($ruta, $destino);
-			$query  = "INSERT INTO actividad(nombre, tipo, descripcion, fecha, imagen, idenm, maestro_r, num_integ) VALUES('".$data['nombre']."','".$data['estado']."', '".$data['descripcion']."', '".$data['fecha']."', '".$destino."', '".$d."','".$data['maestro']."', '".$data['integrantes']."')";
+			$query  = "INSERT INTO grado(grado, seccion, maestro) VALUES('".$data['grado']."','".$data['seccion']."', '".$data['maestro']."')";
 			$result = mysqli_query($this->link, $query);
 			if (mysqli_affected_rows($this->link) > 0){
-				$query  = "INSERT INTO estadistica(tipo_act, fecha_act,  nombre_act, ident, maes_res, est_integ) VALUES('".$data['estado']."','".$data['fecha']."', '".$data['nombre']."', '".$d."','".$data['maestro']."','".$data['integrantes']."')";
-				$result = mysqli_query($this->link, $query);
-				if ($result) {
 					return true;
 				}
-				else{
-					return false;
-				}
 				
-			}else {
+			else {
 				return false;
 			}
 		}
@@ -71,22 +51,12 @@
 				return false;
 			}
 		}
-		public function deleteActividad($id=NULL,$img){
+		public function deleteGrado($id=NULL){
 			
-				$query = "DELETE FROM actividad WHERE idenm =" .$id;
+				$query = "DELETE FROM grado WHERE id_grado =" .$id;
 				$result = mysqli_query($this->link, $query);	
-				unlink($img); 
 				if (mysqli_affected_rows($this->link)>0) {
-				
-					$query2 = "DELETE FROM estadistica WHERE ident =" .$id;
-					$result2 = mysqli_query($this->link, $query2);
-					if ($result2) {
-						return true;
-					}
-					else{
-						return false;
-					}
-					
+						return true;		
 				}else{
 					return false;
 				}
@@ -115,7 +85,9 @@
 					return false;
 				}
 			
-		}			
+		}
+				
+				
 		public function buscarActividad($buscar){
 			
 				$query = "SELECT * FROM actividad WHERE nombre LIKE '%".$buscar."%' OR tipo LIKE '%".$buscar."%' OR descripcion LIKE '%".$buscar."%' OR fecha LIKE '%".$buscar."%' OR maestro_r LIKE '%".$buscar."%'";
@@ -125,32 +97,6 @@
 				array_pop($data);
 				return $data;
 					
-		}
-		public function getActividadlol($tamaño, $begin)
-		{	
-			$cont = 0;
-			$contador = $this->getActividad();
-			foreach($contador as $column => $value){
-				$cont++;
-			}
-			if($begin == 0){
-				$begin = $cont;
-				$tamaño = $begin - $tamaño;
-			}
-			else{
-				$begin = $cont - $begin;
-				$tamaño = $begin - $tamaño;
-				if($tamaño < 0){
-					$tamaño = 0;
-				}
-			}
-			$query  = "SELECT * FROM actividad LIMIT $tamaño,$begin";
-			$result = mysqli_query($this->link, $query);
-			$data   = array();	
-			while ($data[] = mysqli_fetch_assoc($result));
-			array_pop($data);
-			rsort($data);
-			return $data;	
 		}
 		}
 

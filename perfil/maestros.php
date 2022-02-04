@@ -1,5 +1,8 @@
 	<?php
 		include "../php/maestros/maestro.php";
+		include "../php/grado/grado.php";
+		$grado = new grado;
+		$grado = $grado->getGrado();
 		$maestro = new maestro;	
 		$maestro = $maestro->getMaestro();
 		$maestro_a = new maestro;
@@ -30,6 +33,9 @@
 		session_start();
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
 			header('location: ../index.php');
+		}
+		if ($_SESSION['cuenta'] != 'administrador') {
+			header('location: inicio.php');
 		}
 		if (isset($_GET['logout'])) {
 			session_destroy();
@@ -77,7 +83,67 @@
 	</head>
 	
 
-	
+	<div class="modal fade" id="ventana4">
+		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
+		<div class="col-md-5" style="margin: auto;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						
+						<h3 class="modal-title">INGRESE LOS SIGUIENTES DATOS</h3>
+						
+						
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<form action="../php/grado/grado_controler.php" method="POST" id="registro2" name ="registro2">
+							<div class="col-md-12">
+								<div class="form-group">
+								<label> Grado</label>
+								<select class = "form-control" name = "grado">
+									<option value = "1er Grado">1er Grado </option>
+									<option value = "2do Grado">2do Grado </option>
+									<option value = "3er Grado">3er Grado </option>
+									<option value = "4to Grado">4to Grado </option>
+									<option value = "5to Grado">5to Grado </option>
+									<option value = "6to Grado">6to Grado </option>
+								</select>			
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Seccion</label>
+								<select class = "form-control" name = "seccion">
+									<option value = "Seccion A">Seccion A</option>
+									<option value = "Seccion B">Seccion B</option>
+									<option value = "Seccion C">Seccion C</option>
+									<option value = "Seccion D">Seccion D</option>
+									<option value = "Seccion E">Seccion E</option>
+									<option value = "Seccion U">Seccion U</option>
+
+								</select>	
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Maestro</label>
+								<select class = "form-control" name = "maestro">
+								<?php foreach ($maestro as $key => $value) {?>
+									<option value = "<?=$value['nombres'] .' ' .$value['apellidos'];?>"><?= $value['nombres'] ." " .$value['apellidos'];?></option>
+								<?php } ?>
+								</select>
+							</div>
+							</div>
+							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
+							</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 	<div class="modal fade" id="ventana">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
@@ -222,13 +288,13 @@
 	<?php include "../php/acceso2.php"; ?>
 			
 		</header>
-		<main class="container" style="display: flex; background-color: rgba(0,0,0,0);">
+		<main class="container" style="display: flex; background-color: rgba(0,0,0,0); flex-wrap:wrap;">
 
 			<div class="wall-p">
 					<div class="title-m">
 					<h2>MAESTROS</h2>	
 					
-				<hr class="stylerf"><?php include "../php/acceso.php"; ?>
+				<hr class="stylerf">
 			</div>
 		
 								<table class="table table-striped table-bordered table-hover">
@@ -265,13 +331,56 @@
 				</tr>
 
 					</table>
-				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar</a>
+				<a href="#ventana" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Maestro</a>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$nombres?>:
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
 				<?php } ?>
 			</div>
+			<?php include "../php/acceso.php"; ?>
+			<div class="wall-p">
+					<div class="title-m">
+					<h2>GRADOS</h2>	
+					<hr class="stylerf">
+					<table class="table table-striped table-bordered table-hover">
+							<tr class="bg-pboots">
+								<th>GRADO</th>
+								<th>SECCION</th>
+								<th>MAESTRO</th>
+								<th>OPCION</th>
 
+			
+							</tr>
+								<?php  $i = 0;
+					if (count($grado)>0) {
+						foreach ($grado as $column => $value) {	
+					$i++;
+				?>
+						<tr class="elsegundo" style="text-align: center;">
+							<td><a href="?id=<?=$value['id_grado'];?>"><?php echo $value['grado'];?></a></td>
+							<td><?php echo $value['seccion'];?></td>
+							<td><?php echo $value['maestro'];?></td>
+							<td><a href="../php/grado/grado_controler.php?id=<?=$value['id_grado'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+						</tr>
+					<?php }
+						} if($i == 0){?>
+				<tr>
+				
+							<td>No hay datos</td>	
+							
+								<?php }  ?>
+				</tr>
+
+					</table>
+					
+				
+			</div>
+				<a href="#ventana4" class="btn btn-success" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Grado</a>
+				<?php if (isset($_GET['id'])) { ?>
+					<span style="float: right;"><?=$nombres?>:
+				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
+				<?php } ?>
+			</div>
 		</main>
 
 			<footer>

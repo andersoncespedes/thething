@@ -153,6 +153,7 @@
 						$_SESSION['ident_p'] = $integrantes['ident_p'];
 						$_SESSION['usuario'] = $integrantes['usuario'];
 						$_SESSION['pass']	 = $integrantes['pass'];
+						$_SESSION['cuenta']	 = $integrantes['tipo_usu'];
 						mysqli_close($this->link);
 						return true;
 					}

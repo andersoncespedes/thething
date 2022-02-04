@@ -46,7 +46,7 @@
 	}
 		if (isset($_POST['recuperar1'])) {
 		if ($users->recupFaseB($_POST)) {
-			header('location: ../../recup_con.php?id=' .$_POST['iden']);
+			header('location: ../../?id=' .$_POST['iden']);
 		}
 		else{
 			header('location: ../../?error=' .$_POST['iden']. 'success=true');

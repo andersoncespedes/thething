@@ -6,6 +6,9 @@
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
 			header('location: ../index.php');
 		}
+		if ($_SESSION['cuenta'] != 'administrador') {
+			header('location: inicio.php');
+		}
 		if (isset($_GET['logout'])) {
 			session_destroy();
 			header('location: ../index.php');
@@ -126,7 +129,7 @@
 				</div>
 					<ul>
 						<li><a href=""> ACTIVIDADES</a></li>
-						<li><a href="estadistica.php"> ESTADISTICA</a></li>
+						<li><a href="estadistica.php?pag=1"> ESTADISTICA</a></li>
 						<li><a href="maestros.php"> MAESTROS</a></li>
 						<li><a href="../php/respaldo/respaffl.php"> RESPALDO</a></li>
 						
