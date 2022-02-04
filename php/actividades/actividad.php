@@ -10,7 +10,14 @@
 			$this->conn  = new conexion();
 			$this->link  = $this->conn->conectar();
 		}
-	
+		public function getAct()
+		{
+			$query  = "SELECT * FROM actividad";
+			$result = mysqli_query($this->link, $query);
+			$data   = mysqli_affected_rows($this->link); 
+			return $data;
+
+		}
 		public function getActividad()
 		{
 		
@@ -108,9 +115,7 @@
 					return false;
 				}
 			
-		}
-				
-				
+		}			
 		public function buscarActividad($buscar){
 			
 				$query = "SELECT * FROM actividad WHERE nombre LIKE '%".$buscar."%' OR tipo LIKE '%".$buscar."%' OR descripcion LIKE '%".$buscar."%' OR fecha LIKE '%".$buscar."%' OR maestro_r LIKE '%".$buscar."%'";
@@ -120,6 +125,32 @@
 				array_pop($data);
 				return $data;
 					
+		}
+		public function getActividadlol($tamaño, $begin)
+		{	
+			$cont = 0;
+			$contador = $this->getActividad();
+			foreach($contador as $column => $value){
+				$cont++;
+			}
+			if($begin == 0){
+				$begin = $cont;
+				$tamaño = $begin - $tamaño;
+			}
+			else{
+				$begin = $cont - $begin;
+				$tamaño = $begin - $tamaño;
+				if($tamaño < 0){
+					$tamaño = 0;
+				}
+			}
+			$query  = "SELECT * FROM actividad LIMIT $tamaño,$begin";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			array_pop($data);
+			rsort($data);
+			return $data;	
 		}
 		}
 
