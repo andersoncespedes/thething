@@ -29,7 +29,7 @@
 	}
 	if (isset($_POST['validar'])) {
 		if ($users->validarUser($_POST)) {
-			header('location: ../../perfil/inicio.php?validar_user=1&success=true');
+			header('location: ../../perfil/inicio.php?validar_user=1&success=true&pag=1');
 		}
 		else{
 			header('location: ../../index.php?error_user=0&error=true');
@@ -52,6 +52,13 @@
 			header('location: ../../?error=' .$_POST['iden']. 'success=true');
 		}
 	}
-
+	if (isset($_GET['cambiar_usu'])) {
+		if ($users->changeUser($_GET['id'], $_GET['usu'])) {
+			header('location: ../../perfil/usuarios.php?page=edit_p&id=' .$_GET['id']. 'success=true');
+		}
+		else{
+			header('location: ../../perfil/usuarios.php?page=edit_p&id=' .$_GET['id']. 'error=true');
+		}
+	}
 
 ?>

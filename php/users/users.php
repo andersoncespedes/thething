@@ -139,7 +139,28 @@
 				}
 			}
 		}
-	
+		public function changeUser($id=NULL, $usuario){
+			if (!empty($id)) {
+				if($usuario == 'administrador'){
+				$query = "UPDATE usuario SET tipo_usu = 'corriente' WHERE id =" .$id;
+				$result = mysqli_query($this->link, $query);
+				if (mysqli_affected_rows($this->link)>0) {
+					return true;
+				}else{
+					return false;
+				}	
+				}
+				else{
+					$query = "UPDATE usuario SET tipo_usu = 'administrador' WHERE id = " .$id;
+					$result = mysqli_query($this->link, $query);
+					if (mysqli_affected_rows($this->link)>0) {
+						return true;
+					}else{
+						return false;
+					}	
+				}
+			}
+		}
 		
 		public function validarUser($data){
 			$query = "SELECT * FROM usuario WHERE usuario = '".$data['usuario']."'";
