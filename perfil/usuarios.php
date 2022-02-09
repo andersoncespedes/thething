@@ -74,7 +74,7 @@
 
 			<div class="wall-p">
 					<div class="title-m">
-					<h2>MAESTROS</h2>	
+					<h2>USUARIOS</h2>	
 					
 				<hr class="stylerf">
 			</div>
