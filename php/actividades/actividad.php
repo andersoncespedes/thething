@@ -140,9 +140,16 @@
 			else{
 				$begin = $cont - $begin;
 				$tamaño = $begin - $tamaño;
-				if($tamaño < 0){
+				
+		
+				if($begin < 1){
+					$begin = 1;
+				}
+			}	if($tamaño < 0){
 					$tamaño = 0;
 				}
+			if($begin < 1){
+				$begin = 1;
 			}
 			$query  = "SELECT * FROM actividad LIMIT $tamaño,$begin";
 			$result = mysqli_query($this->link, $query);
