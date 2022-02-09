@@ -331,7 +331,7 @@
 				</tr>
 
 					</table>
-				<a href="#ventana" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Maestro</a>
+				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Maestro</a>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$nombres?>:
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>

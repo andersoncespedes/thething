@@ -166,6 +166,7 @@
 						<?php if($_SESSION['cuenta'] == 'administrador'){?>
 						<li><a href="maestros.php"> MAESTROS</a></li>
 						<li><a href="usuarios.php"> USUARIOS</a></li>
+						<li><a href="estudiantes.php"> ESTUDIANTES</a></li>
 						<li><a href="../php/respaldo/respaffl.php"> RESPALDO</a></li>
 						<?php } ?>
 

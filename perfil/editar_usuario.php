@@ -1,7 +1,7 @@
 
 	<?php
 		session_start();
-		include "../php/users/users.php";
+		require "../php/users/users.php";
 		$user = new users();
 		$securi = new users();
 		$user = $user->getUserById();

@@ -1,22 +1,23 @@
 <?php 
+
 	/**
 	 * 
 	 */
 	class conexion
 	{
-		private $host;
-		private $user;
-		private $password;
-		private $database;
-		protected $link;
+		public $host;
+		public $user;
+		public $password;
+		public $database;
+	
 		function __construct(){
 			$this->host 	= "localhost";
 			$this->user 	= "root";
 			$this->password = "";
 			$this->database = "sanjose";
-			$this->link = $this->conectar();
 		}
-		protected function conectar(){
+
+		public function conectar(){
 			$conexion = mysqli_connect($this->host, $this->user, $this->password, $this->database);
 			if ($conexion) {
 			}
