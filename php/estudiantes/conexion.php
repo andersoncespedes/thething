@@ -2,7 +2,7 @@
 	/**
 	 * 
 	 */
-	class conexion
+	class conexions
 	{
 		private $host;
 		private $user;

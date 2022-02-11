@@ -3,7 +3,7 @@
 	/**
 	 * 
 	 */
-	class conexion
+	class conexions
 	{
 		public $host;
 		public $user;

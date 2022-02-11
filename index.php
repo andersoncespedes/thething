@@ -46,7 +46,6 @@
 		</div>
 
 		<div class="loader hidden">
-			<img src="img/escuela-y-colegio-imagen-animada-0047.gif">
 			Please Wait...
 		</div>
 

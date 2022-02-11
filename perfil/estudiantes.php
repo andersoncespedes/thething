@@ -1,31 +1,10 @@
 <?php
-		include "../php/maestros/maestro.php";
+		include "../php/estudiantes/estudiante.php";
 		include "../php/grado/grado.php";
+		$estudiante = new estudiante;
 		$grado = new grado;
 		$grado = $grado->getGrado();
-		$maestro = new maestro;	
-		$maestro = $maestro->getMaestro();
-		$maestro_a = new maestro;
-		
-		$id = isset($_GET['id'])?$_GET['id']:NULL;
-		$maestro_a = $maestro_a->getMaestroById($id);
-		$id            = '';
-		$nombres 	   = '';
-		$apellidos	   = '';
-		$cedula        = '';
-		$correo        = '';
-		$nacimiento    = '';
-		$direccion     = '';
-
-		if ($maestro_a) {
-			$id      	      = $maestro_a[0]['id_maestro'];
-			$nombres          = $maestro_a[0]['nombres'];
-			$apellidos        = $maestro_a[0]['apellidos'];
-			$cedula           = $maestro_a[0]['cedula'];
-			$correo     	  = $maestro_a[0]['correo'];
-			$nacimiento       = $maestro_a[0]['nacimiento'];
-			$direccion     	  = $maestro_a[0]['direccion'];
-		}
+		$estudiante = $estudiante->getEstudiante();
 	?>
 
 	<?php
@@ -198,7 +177,7 @@
 								<textarea class="form-control" placeholder="Direccion"  name="direccion" style="max-height: 80px; min-height: 80px; color: black !important;" required><?=$direccion?></textarea>
 							</div>
 							</div>
-							<input type="submit" name="editar" class="btn btn-info btn-block" value="Ingresar">
+							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form>
 
 							</div>
@@ -222,7 +201,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="container">
-							<form action="../php/maestros/maestro_controler.php" method="POST" id="registro1" name ="registro1">
+							<form action="../php/estudiantes/estudiante_controler.php" method="POST" id="registro1" name ="registro1">
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
@@ -243,28 +222,15 @@
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
-								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
+								<label>Grado </label>
+								<select class = "form-control" name = "grado">
+								<?php foreach ($grado as $key => $value) {?>
+									<option value = "<?=$value['grado'] .' ' .$value['seccion'];?>"><?= $value['grado'] ." " .$value['seccion'];?></option>
+								<?php } ?>
+								</select>
 							</div>
 							</div>
-							<div class="col-md-12">
-							<div class="form-group">
-								<label>Años de servicio</label>
-								<input type="number" name="aos_s" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
-							</div>
-							</div>
-							<div class="col-md-12">
-							<div class="form-group">
-								<label>Fecha de naciomiento</label>
-								<input type="date" name="servicio" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
-							</div>
-							</div>
-							<div class="col-md-12">
-							<div class="form-group">
-								<label>Direccion</label>
-								<textarea class="form-control" placeholder="Direccion" name="direccion" style="max-height: 80px; min-height: 80px; color: black !important;" required></textarea>
-							</div>
-							</div>
+			
 						
 							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form><br>
@@ -277,7 +243,6 @@
 		</div>
 		</div>
 	<div class="loader hidden">
-			<img src="../img/escuela-y-colegio-imagen-animada-0047.gif">
 			Please Wait...
 		</div>
 	<body style="background-color: rgba(0,0,0,0.2);">
@@ -292,7 +257,7 @@
 
 			<div class="wall-p">
 					<div class="title-m">
-					<h2>MAESTROS</h2>	
+					<h2>ESTUDIANTES</h2>	
 					
 				<hr class="stylerf">
 			</div>
@@ -302,23 +267,26 @@
 								<th>NOMBRE</th>
 								<th>APELLIDO</th>
 								<th>CEDULA</th>
-								<th>CORREO</th>
-								<th>NACIMIENTO</th>
-								<th>SERVICIO</th>
-								<th>OPCION</th>				
+								<th>GRADO</th>
+								<th>OPCION</th>
+
+							
+
+										
 							</tr>
 								<?php  $i = 0;
-					if (count($maestro)>0) {
-						foreach ($maestro as $column => $value) {	
+					if (count($estudiante)>0) {
+						foreach ($estudiante as $column => $value) {	
 					$i++;
 				?>
 						<tr class="elsegundo" style="text-align: center;">
-							<td><a href="?id=<?=$value['id_maestro'];?>"><?php echo $value['nombres'];?></a></td>
+							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombres'];?></a></td>
 							<td><?php echo $value['apellidos'];?></td>
 							<td><?php echo $value['cedula'];?></td>
-							<td><?php echo $value['correo'];?></td>
-							<td><?php echo $value['nacimiento'];?></td>
-							<td><?php echo (date('Y') - $value['servicio']);?></td>
+							<td><?php echo $value['grado'];?></td>
+						
+
+				
 							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
@@ -331,56 +299,14 @@
 				</tr>
 
 					</table>
-				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Maestro</a>
+				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Estudiante</a>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$nombres?>:
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
 				<?php } ?>
 			</div>
 			<?php include "../php/acceso.php"; ?>
-			<div class="wall-p">
-					<div class="title-m">
-					<h2>GRADOS</h2>	
-					<hr class="stylerf">
-					<table class="table table-striped table-bordered table-hover">
-							<tr class="bg-pboots">
-								<th>GRADO</th>
-								<th>SECCION</th>
-								<th>MAESTRO</th>
-								<th>OPCION</th>
 
-			
-							</tr>
-								<?php  $i = 0;
-					if (count($grado)>0) {
-						foreach ($grado as $column => $value) {	
-					$i++;
-				?>
-						<tr class="elsegundo" style="text-align: center;">
-							<td><a href="?id=<?=$value['id_grado'];?>"><?php echo $value['grado'];?></a></td>
-							<td><?php echo $value['seccion'];?></td>
-							<td><?php echo $value['maestro'];?></td>
-							<td><a href="../php/grado/grado_controler.php?id=<?=$value['id_grado'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
-						</tr>
-					<?php }
-						} if($i == 0){?>
-				<tr>
-				
-							<td>No hay datos</td>	
-							
-								<?php }  ?>
-				</tr>
-
-					</table>
-					
-				
-			</div>
-				<a href="#ventana4" class="btn btn-success" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Grado</a>
-				<?php if (isset($_GET['id'])) { ?>
-					<span style="float: right;"><?=$nombres?>:
-				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
-				<?php } ?>
-			</div>
 		</main>
 
 			<footer>
@@ -425,12 +351,7 @@ function apellido(ev) {
 		ev.preventDefault();
 	}
 }
-function correo(ev) {
-	if (!expresion.test(formulario1.correo.value)) {
-		fdd.innerHTML += "<div class='alert alert-danger'><span class='close' data-dismiss = 'alert'>&times;</span> EL CORREO INGRESADO NO ES VALIDO</strong></div><br>"
-		ev.preventDefault();
-	}
-}
+
 function cedula(ev) {
 	 if (isNaN(formulario1.cedula.value)) {
 		fdd.innerHTML += "<div class='alert alert-danger'><span class='close' data-dismiss = 'alert'>&times;</span> SOLO SE PERMITEN NUMEROS EN EL CAMPO CEDULA</strong></div><br>"

@@ -69,7 +69,6 @@
 		</style>
 	</head>
 	<div class="loader hidden">
-			<img src="../img/escuela-y-colegio-imagen-animada-0047.gif">
 			Please Wait...
 		</div>
 	<body style="background-color: rgba(0,0,0,0.2);">
