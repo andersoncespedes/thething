@@ -3,7 +3,7 @@
 	/**
 	 * 
 	 */
-	class estudiante
+	class representante
 	{
 		private $conn;
 		private $link;
@@ -24,9 +24,9 @@
 			return $data;	
 		}
 
-		public function newEstudiante($data)
+		public function newRepresentante($data)
 		{
-			$query  = "INSERT INTO estudiante(nombres, apellidos, cedula, grado) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['grado']."')";
+			$query  = "INSERT INTO representante(nombre_rep, apellido_rep, cedula_rep, telefono_rep, correo_rep, id_estudiante, direccion_rep) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['telefono']."', '".$data['correo']."','".$data['id_m']."', '".$data['direccion']."')";
 			$result = mysqli_query($this->link, $query);
 			if (mysqli_affected_rows($this->link) > 0){
 				return true;
@@ -39,10 +39,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.nombres, E.apellidos, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
-				FROM estudiante E
-				 JOIN representante D
-				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
+				$query  = "SELECT * FROM estudiante WHERE id_estudiante =" .$id;
 				$result = mysqli_query($this->link, $query);
 				$data   = array();
   				while ($data[] = mysqli_fetch_assoc($result));

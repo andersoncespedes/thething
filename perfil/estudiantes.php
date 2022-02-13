@@ -1,10 +1,15 @@
 <?php
 		include "../php/estudiantes/estudiante.php";
 		include "../php/grado/grado.php";
-		$estudiante = new estudiante;
+		$estudiantes = new estudiante;
 		$grado = new grado;
 		$grado = $grado->getGrado();
-		$estudiante = $estudiante->getEstudiante();
+		$estudiante = $estudiantes->getEstudiante();
+		if(isset($_GET['id'])){
+			$estudiant = $estudiantes->getEstudianteById($_GET['id']);
+		}
+		
+
 	?>
 
 	<?php
@@ -61,8 +66,7 @@
 		</style>
 	</head>
 	
-
-	<div class="modal fade" id="ventana4">
+	<div class="modal fade" id="ventana5">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
 			<div class="modal-dialog">
@@ -75,42 +79,45 @@
 					</div>
 					<div class="modal-body">
 						<div class="container">
-							<form action="../php/grado/grado_controler.php" method="POST" id="registro2" name ="registro2">
+							<form action="../php/representante/representante_controler.php" method="POST" id="registro2" name ="registro2">
 							<div class="col-md-12">
 								<div class="form-group">
-								<label> Grado</label>
-								<select class = "form-control" name = "grado">
-									<option value = "1er Grado">1er Grado </option>
-									<option value = "2do Grado">2do Grado </option>
-									<option value = "3er Grado">3er Grado </option>
-									<option value = "4to Grado">4to Grado </option>
-									<option value = "5to Grado">5to Grado </option>
-									<option value = "6to Grado">6to Grado </option>
-								</select>			
+								<label> Nombre</label>
+								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"  style="color: black !important;" required>
+					
+								<input type="text" name="id_m" class="form-control" value = "<?=$_GET['id']?>" placeholder="Nombre"  style="display: none;" >
+							
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
-								<label>Seccion</label>
-								<select class = "form-control" name = "seccion">
-									<option value = "Seccion A">Seccion A</option>
-									<option value = "Seccion B">Seccion B</option>
-									<option value = "Seccion C">Seccion C</option>
-									<option value = "Seccion D">Seccion D</option>
-									<option value = "Seccion E">Seccion E</option>
-									<option value = "Seccion U">Seccion U</option>
-
-								</select>	
+								<label>Apellido</label>
+								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido"  style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
-								<label>Maestro</label>
-								<select class = "form-control" name = "maestro">
-								<?php foreach ($maestro as $key => $value) {?>
-									<option value = "<?=$value['nombres'] .' ' .$value['apellidos'];?>"><?= $value['nombres'] ." " .$value['apellidos'];?></option>
-								<?php } ?>
-								</select>
+								<label>Cedula</label>
+								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
+								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
+							</div>
+							</div>
+						
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Telefono</label>
+								<input type="number" name="telefono" id="servicio" class="form-control" placeholder="0412-" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Direccion</label>
+								<textarea class="form-control" placeholder="Direccion"  name="direccion" style="max-height: 80px; min-height: 80px; color: black !important;" required></textarea>
 							</div>
 							</div>
 							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
@@ -123,6 +130,7 @@
 			</div>
 		</div>
 		</div>
+
 	<div class="modal fade" id="ventana">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
@@ -285,7 +293,7 @@
 							<td><?php echo $value['cedula'];?></td>
 							<td><?php echo $value['grado'];?></td>
 						
-
+							
 				
 							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
@@ -301,12 +309,61 @@
 					</table>
 				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Estudiante</a>
 				<?php if (isset($_GET['id'])) { ?>
-					<span style="float: right;"><?=$nombres?>:
+					<span style="float: right;"><?=$estudiant[0]['nombres'] ." " .$estudiant[0]['apellidos']?>:
+					
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
+				<a href="#ventana5" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Representante</a></span>
+
 				<?php } ?>
 			</div>
-			<?php include "../php/acceso.php"; ?>
 
+			<?php include "../php/acceso.php"; if (isset($_GET['id']) && isset($estudiant[0]['correo_rep'])) { ?>
+			<div class="wall-p">
+					<div class="title-m">
+					<h2>REPRESENTANTES DE <?=$estudiant[0]['nombres'] ." " .$estudiant[0]['apellidos']?> </h2>	
+					
+				<hr class="stylerf">
+			</div>
+		
+								<table class="table table-striped table-bordered table-hover">
+							<tr class="bg-pboots">
+								<th>NOMBRE</th>
+								<th>APELLIDO</th>
+								<th>CEDULA</th>
+								<th>CORREO</th>
+								<th>TELEFONO</th>
+								<th>OPCION</th>
+
+							
+
+										
+							</tr>
+								<?php  $i = 0;
+					if (count($estudiante)>0) {
+						foreach ($estudiant as $column => $value) {	
+					$i++;
+				?>
+						<tr class="elsegundo" style="text-align: center;">
+							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombre_rep'];?></a></td>
+							<td><?php echo $value['apellido_rep'];?></td>
+							<td><?php echo $value['cedula_rep'];?></td>
+							<td><?php echo $value['correo_rep'];?></td>
+							<td><?php echo $value['telefono_rep'];?></td>
+							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+						</tr>
+					<?php }
+						} if($i == 0){?>
+				<tr>
+				
+							<td>No hay datos</td>	
+							
+								<?php }  ?>
+				</tr>
+
+					</table>
+			
+				<?php } ?>
+			</div>
 		</main>
 
 			<footer>

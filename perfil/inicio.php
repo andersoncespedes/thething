@@ -5,14 +5,14 @@
 		$act = new actividad();
 		$act = $act->getAct();
 
-		$tamaño = 4;
-		$begin  = ($_GET['pag'] - 1) * $tamaño;
+		
 		if (isset($_POST['buscar'])) {
 			$busqueda = $_POST['buscar'];
 			$actividad = $actividad->buscarActividad($busqueda);
 		}
 		else{
-	
+	$tamaño = 4;
+		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$busqueda = NULL;
 		$actividad = $actividad->getActividadlol($tamaño, $begin);
 		}
@@ -148,11 +148,13 @@
 		} 
 
 			?>
-			<?php	if ($begin - $tamaño >= 0 ) {?>
+			<?php if (isset($_GET['pag'])) {
+			
+				if ($begin - $tamaño >= 0 ) {?>
 				<a href="?pag=<?=$_GET['pag']-1?>" class = "btn btn-danger">ATRAS</a>
 			<?php } if ($begin + $tamaño < $act ) { ?>
 			 <a href="?pag=<?=$_GET['pag']+1?>" class = "btn btn-success" style = "float:right;">SIGUIENTE</a>
-			 <?php }  ?>
+			 <?php } } ?>
 			</div>	
 			<div style="width: 40%;" class="raro">
 			<div class="wall-s">
