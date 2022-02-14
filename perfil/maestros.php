@@ -356,7 +356,7 @@
 					$i++;
 				?>
 						<tr class="elsegundo" style="text-align: center;">
-							<td><a href="?id=<?=$value['id_grado'];?>"><?php echo $value['grado'];?></a></td>
+							<td><a href="?id_grado=<?=$value['id_grado'];?>"><?php echo $value['grado'];?></a></td>
 							<td><?php echo $value['seccion'];?></td>
 							<td><?php echo $value['maestro'];?></td>
 							<td><a href="../php/grado/grado_controler.php?id=<?=$value['id_grado'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
@@ -375,7 +375,7 @@
 				
 			</div>
 				<a href="#ventana4" class="btn btn-success" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Grado</a>
-				<?php if (isset($_GET['id'])) { ?>
+				<?php if (isset($_GET['id_grado'])) { ?>
 					<span style="float: right;"><?=$nombres?>:
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
 				<?php } ?>
