@@ -295,7 +295,7 @@
 						
 							
 				
-							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_estudiante'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>
@@ -349,7 +349,8 @@
 							<td><?php echo $value['cedula_rep'];?></td>
 							<td><?php echo $value['correo_rep'];?></td>
 							<td><?php echo $value['telefono_rep'];?></td>
-							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+							
+							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>

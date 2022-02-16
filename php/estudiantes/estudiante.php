@@ -47,7 +47,18 @@
 				$data   = array();
   				while ($data[] = mysqli_fetch_assoc($result));
   				array_pop($data);
-				return $data;	
+				  if ($data[0]['apellido_rep'] != NULL) {
+					 return $data;
+				  }
+				  else{
+					  $query1 = "SELECT * FROM estudiante WHERE id_estudiante =" .$id;
+					  $result1 = mysqli_query($this->link, $query1);
+				$data1   = array();
+  				while ($data1[] = mysqli_fetch_assoc($result1));
+  				array_pop($data1);
+				  return $data1;
+				  }
+					
 			}
 			else{
 				return false;
@@ -66,9 +77,11 @@
 			
 		}
 		
-		public function deleteMaestro($id=NULL){
+		public function deleteEstudiante($id){
 			
-				$query = "DELETE FROM maestro WHERE id_maestro =" .$id;
+				$query = "DELETE estudiante
+				FROM estudiante 
+				WHERE id_estudiante =" .$id;
 				$result = mysqli_query($this->link, $query);
 				if (mysqli_affected_rows($this->link)>0) {
 					return true;
