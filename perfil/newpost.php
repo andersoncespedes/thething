@@ -106,11 +106,12 @@
 					<h2>MENU</h2>
 				</div>
 					<ul>
-						<li><a href=""> ACTIVIDADES</a></li>
-						<li><a href="estadistica.php?pag=1"> ESTADISTICA</a></li>
-						<li><a href="maestros.php"> MAESTROS</a></li>
-						<li><a href="usuarios.php"> USUARIOS</a></li>
-						<li><a href="../php/respaldo/respaffl.php"> RESPALDO</a></li>
+						<li><a href=""><span class ="icon-image"></span> ACTIVIDADES</a></li>
+						<li><a href="estadistica.php?pag=1"><span class = "icon-chart-pie"></span> ESTADISTICA</a></li>
+						<li><a href="maestros.php"><span class="icon-group"></span> MAESTROS</a></li>
+						<li><a href="usuarios.php"><span class= "icon-user"></span> USUARIOS</a></li>
+						<li><a href="estudiantes.php"><span class ="icon-user-add"></span> ESTUDIANTES</a></li>
+						<li><a href="../php/respaldo/respaffl.php"><span class ="icon-download"></span> RESPALDO</a></li>
 						
 
 					</ul>

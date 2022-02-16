@@ -59,10 +59,9 @@
 				</div>
 				
 			</div>
-		</dir>
+		</div>
 	</main>
 <script type="text/javascript">
-
 		
 </script>
 
