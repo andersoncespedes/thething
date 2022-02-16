@@ -19,7 +19,7 @@
 			Please Wait...
 		</div>
 
-	<main style="width: 100%;">
+	<main style="width: 100%;">asdadada
 		<div class="back">
 			<a href="index.php"><<</a>
 		</div>
