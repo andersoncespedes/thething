@@ -144,48 +144,42 @@
 					</div>
 					<div class="modal-body">
 						<div class="container">
-							<form action="../php/maestros/maestro_controler.php" method="POST" id="registro2" name ="registro2">
+							<form action="../php/estudiantes/estudiante_controler.php" method="POST" id="registro2" name ="registro2">
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?=$nombres?>" style="color: black !important;" required>
+								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?=$estudiant[0]['nombres'];?>" style="color: black !important;" required>
 					
-								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$id?>" style="display: none;" >
+								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$_GET['id']?>" style="display: none;" >
 							
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="<?=$apellidos?>" style="color: black !important;" required>
+								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="<?=$estudiant[0]['apellidos'];?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?=$cedula?>" style="color: black !important;" required>
+								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?=$estudiant[0]['cedula'];?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
-								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" value="<?=$correo?>" style="color: black !important;" required>
+								<label>Grado </label>
+								<input type="text" name="grado" id="grado" class="form-control" placeholder="grado" value="<?=$estudiant[0]['grado'];?>" style="color: black !important;" required>
 							</div>
 							</div>
 						
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Fecha de naciomiento</label>
-								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990" value="<?=$nacimiento?>" style="color: black !important;" required>
+								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990" value="<?=$estudiant[0]['nacimiento'];?>" style="color: black !important;" required>
 							</div>
 							</div>
-							<div class="col-md-12">
-							<div class="form-group">
-								<label>Direccion</label>
-								<textarea class="form-control" placeholder="Direccion"  name="direccion" style="max-height: 80px; min-height: 80px; color: black !important;" required><?=$direccion?></textarea>
-							</div>
-							</div>
-							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
+							<input type="submit" name="editar" class="btn btn-info btn-block" value="Ingresar">
 							</form>
 
 							</div>
@@ -238,7 +232,12 @@
 								</select>
 							</div>
 							</div>
-			
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Fecha de naciomiento</label>
+								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990"  style="color: black !important;" required>
+							</div>
+							</div>
 						
 							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form><br>

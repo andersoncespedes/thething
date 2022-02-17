@@ -12,11 +12,11 @@
 	}
 
 	if (isset($_POST['editar'])) {
-		if ($maestro->setEditMaestro($_POST)) {
-			header('location: ../../perfil/maestros.php?e_maestro=1&id=' .$_POST['id_m']. '&success=true');
+		if ($estudiante->setEditEstudiante($_POST)) {
+			header('location: ../../perfil/estudiantes.php?e_maestro=1&id=' .$_POST['id_m']. '&success=true');
 		}
 		else{
-			header('location: ../../perfil/maestros.php?e_maestro=0&id=' .$_POST['id_m']. '&error=true');
+			header('location: ../../perfil/estudiantes.php?e_maestro=0&id=' .$_POST['id_m']. '&error=true');
 		}
 	}
 	if (isset($_POST['validar'])) {

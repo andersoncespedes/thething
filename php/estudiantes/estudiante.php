@@ -26,7 +26,7 @@
 
 		public function newEstudiante($data)
 		{
-			$query  = "INSERT INTO estudiante(nombres, apellidos, cedula, grado) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['grado']."')";
+			$query  = "INSERT INTO estudiante(nombres, apellidos, cedula, grado, nacimiento) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['grado']."', '".$data['nacimiento']."')";
 			$result = mysqli_query($this->link, $query);
 			if (mysqli_affected_rows($this->link) > 0){
 				return true;
@@ -39,7 +39,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.nombres, E.apellidos, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
+				$query  = " SELECT E.nombres, E.apellidos,E.cedula, E.grado, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
 				FROM estudiante E
 				 JOIN representante D
 				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
@@ -47,7 +47,7 @@
 				$data   = array();
   				while ($data[] = mysqli_fetch_assoc($result));
   				array_pop($data);
-				  if ($data[0]['apellido_rep'] != NULL) {
+				  if (isset($data[0]['apellido_rep'])) {
 					 return $data;
 				  }
 				  else{
@@ -65,9 +65,9 @@
 			}
 		}
 		
-		public function setEditMaestro($data){
+		public function setEditEstudiante($data){
 		
-				$query  = "UPDATE maestro SET nombres = '".$data['nombre']."', apellidos = '".$data['apellido']."', cedula = '".$data['cedula']."', correo = '".$data['correo']."', nacimiento = '".$data['nacimiento']."', direccion = '".$data['direccion']."' WHERE id_maestro =" .$data['id_m'];
+				$query  = "UPDATE estudiante SET nombres = '".$data['nombre']."', apellidos = '".$data['apellido']."', cedula = '".$data['cedula']."', grado = '".$data['grado']."', nacimiento = '".$data['nacimiento']."' WHERE id_estudiante =" .$data['id_m'];
 				$result = mysqli_query($this->link, $query);
 				if ($result) {
 					return true;
