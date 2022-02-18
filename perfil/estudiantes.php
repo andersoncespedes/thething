@@ -169,7 +169,11 @@
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Grado </label>
-								<input type="text" name="grado" id="grado" class="form-control" placeholder="grado" value="<?=$estudiant[0]['grado'];?>" style="color: black !important;" required>
+								<select class = "form-control" name = "grado">
+								<?php foreach ($grado as $key => $value) {?>
+									<option value = "<?=$value['grado'] .' ' .$value['seccion'];?>"><?= $value['grado'] ." " .$value['seccion'];?></option>
+								<?php } ?>
+								</select>
 							</div>
 							</div>
 						
@@ -349,7 +353,7 @@
 							<td><?php echo $value['correo_rep'];?></td>
 							<td><?php echo $value['telefono_rep'];?></td>
 							
-							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/representante/representante_controler.php?id=<?=$value['id_representante'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>

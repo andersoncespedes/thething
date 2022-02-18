@@ -86,6 +86,37 @@
 			
 		
 		  <?php } ?>
+		  <?php if(isset($_GET['success_elim_grado']) == 1){?>
+		
+			
+		<div class="alert alert-warning">
+			<span class="close" data-dismiss = "alert">&times;</span>
+		<strong>¡Realizado!</strong> Se Ha eliminado con exito El Grado.
+	</div>	
+	<?php } ?>
+	<?php if(isset($_GET['n_estudiante']) == 1){?>
+		
+			
+		<div class="alert alert-success">
+			<span class="close" data-dismiss = "alert">&times;</span>
+		<strong>¡Realizado!</strong> Se Ha Guardado Con Exito Un Nuevo Estudiante.
+	</div>	
+	
+		
+	
+	  <?php } ?>
+		  <?php if(isset($_GET['regis_grado']) == 1){?>
+		
+			
+		<div class="alert alert-success">
+			<span class="close" data-dismiss = "alert">&times;</span>
+		<strong>¡Realizado!</strong> Se Ha guardado con exito un nuevo grado.
+	</div>	
+	
+
+		
+	
+	  <?php } ?>
 		  <?php if(isset($_GET['erro']) == 2){?>
 			<div class="alert alert-warning">
 				<span class="close" data-dismiss = "alert">&times;</span>

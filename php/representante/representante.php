@@ -63,9 +63,9 @@
 			
 		}
 		
-		public function deleteMaestro($id=NULL){
+		public function deleteRepresentante($id=NULL){
 			
-				$query = "DELETE FROM maestro WHERE id_maestro =" .$id;
+				$query = "DELETE FROM representante WHERE id_representante =" .$id;
 				$result = mysqli_query($this->link, $query);
 				if (mysqli_affected_rows($this->link)>0) {
 					return true;

@@ -4,10 +4,10 @@
 	$grado = new grado;
 	if (isset($_POST['crear'])) {
 		if ($grado->newGrado($_POST) ) {
-			header('location: ../../perfil/maestros.php?regis_succ=1');
+			header('location: ../../perfil/maestros.php?regis_grado=1');
 		}
 		else{
-			header('location: ../../perfil/maestros.php?regis_error=1?');
+			header('location: ../../perfil/maestros.php?regis_grado_error=1?');
 		}
 	}
 
@@ -22,10 +22,10 @@
 
     if (isset($_GET['delete'])) {
 		if ($grado->deleteGrado($_GET['id'])) {
-			header('location: ../../perfil/maestros.php?d_maestro=1&id_d=' .$_GET['id']. 'success=true');
+			header('location: ../../perfil/maestros.php?success_elim_grado=1');
 		}
 		else{
-			header('location: ../../perfil/maestros.php?d_maestro=0&id_d=' .$_GET['id']. 'success=true');
+			header('location: ../../perfil/maestros.php?fail_elim_grado=1');
 		}
 	}
 

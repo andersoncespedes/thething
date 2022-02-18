@@ -100,10 +100,10 @@
 							<td><?php echo $value['correo'];?></td>
 							<td><?php echo $value['nacimiento'];?></td>
 							<td><?php echo $value['tipo_usu'];?></td>
-
+							<?php if($value['id'] != $_SESSION['id']){ ?>
 							<td><a href="../php/users/user_controler.php?id=<?=$value['id'];?>&cambiar_usu&usu=<?=$value['tipo_usu'];?>" class="btn btn-warning">CAMBIAR TIPO</a></td>
 						</tr>
-					<?php }
+					<?php }}
 						} if($i == 0){?>
 				<tr>
 				

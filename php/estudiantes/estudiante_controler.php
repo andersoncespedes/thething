@@ -4,10 +4,10 @@
 	$estudiante = new estudiante;
 	if (isset($_POST['crear'])) {
 		if ($estudiante->newEstudiante($_POST) ) {
-			header('location: ../../perfil/estudiantes.php?n_maestro=1&success=true');
+			header('location: ../../perfil/estudiantes.php?n_estudiante=1&success=true');
 		}
 		else{
-			header('location: ../../perfil/estudiantes.php?n_maestro=0&error=true');
+			header('location: ../../perfil/estudiantes.php?n_estudiante=0&error=true');
 		}
 	}
 

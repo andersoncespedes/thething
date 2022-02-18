@@ -39,7 +39,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.nombres, E.apellidos,E.cedula, E.grado, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
+				$query  = " SELECT E.nombres, E.apellidos,E.cedula, E.grado,D.id_representante, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
 				FROM estudiante E
 				 JOIN representante D
 				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
