@@ -2,9 +2,9 @@
 		include "../php/actividades/actividad.php";
 	
 		$actividad = new actividad();
-		$act = new actividad();
-		$act = $act->getAct();
-
+		$act1 = new actividad();
+		
+		$act = $act1->getAct();
 		
 		if (isset($_POST['buscar'])) {
 			$busqueda = $_POST['buscar'];
@@ -20,7 +20,7 @@
 	?>
 
 	<?php
-	
+		
 		session_start();
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
 			header('location: ../index.php');
@@ -148,6 +148,7 @@
 		} 
 
 			?>
+			<div style="margin-top: 10px; display: flex; width: 100%;">
 			<?php if (isset($_GET['pag'])) {
 			
 				if ($begin - $tamaño >= 0 ) {?>
@@ -155,7 +156,8 @@
 			<?php } if ($begin + $tamaño < $act ) { ?>
 			 <a href="?pag=<?=$_GET['pag']+1?>" class = "btn btn-success" style = "float:right;">SIGUIENTE</a>
 			 <?php } } ?>
-			</div>	
+			</div>
+			</div>
 			<div style="width: 40%;" class="raro">
 			<div class="wall-s">
 				<div class="title-m">
@@ -186,7 +188,8 @@
 			</div>
 		</main>
 
-			<footer>
+		
+		<footer>
 				<div class="separador">
 					<div class="principal">
 						<h4>REDES SOCIALES:</h4>

@@ -4,7 +4,7 @@
 	class actividad
 	{
 		private $conn;
-		private $link;
+		public $link;
 		function __construct()
 		{
 			$this->conn  = new conexion();
@@ -40,11 +40,17 @@
 			copy($ruta, $destino);
 			$query  = "INSERT INTO actividad(nombre, tipo, descripcion, fecha, imagen, idenm, maestro_r, num_integ) VALUES('".$data['nombre']."','".$data['estado']."', '".$data['descripcion']."', '".$data['fecha']."', '".$destino."', '".$d."','".$data['maestro']."', '".$data['integrantes']."')";
 			$result = mysqli_query($this->link, $query);
+				
 			if (mysqli_affected_rows($this->link) > 0){
-				$query  = "INSERT INTO estadistica(tipo_act, fecha_act,  nombre_act, ident, maes_res, est_integ) VALUES('".$data['estado']."','".$data['fecha']."', '".$data['nombre']."', '".$d."','".$data['maestro']."','".$data['integrantes']."')";
-				$result = mysqli_query($this->link, $query);
-				if ($result) {
+				$query1  = "INSERT INTO participante(id_actividad) VALUES('".mysqli_insert_id($this->link)."')";
+				$result1 = mysqli_query($this->link, $query1);
+
+				$query2  = "INSERT INTO estadistica(tipo_act, fecha_act,  nombre_act, ident, maes_res, est_integ) VALUES('".$data['estado']."','".$data['fecha']."', '".$data['nombre']."', '".$d."','".$data['maestro']."','".$data['integrantes']."')";
+				$result2 = mysqli_query($this->link, $query2);
+				
+				if ($result){
 					return true;
+					
 				}
 				else{
 					return false;
@@ -140,12 +146,11 @@
 			else{
 				$begin = $cont - $begin;
 				$tamaño = $begin - $tamaño;
-				
-		
 				if($begin < 1){
 					$begin = 1;
 				}
-			}	if($tamaño < 0){
+			}	
+			if($tamaño < 0){
 					$tamaño = 0;
 				}
 			if($begin < 1){

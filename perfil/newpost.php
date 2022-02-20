@@ -78,7 +78,7 @@
 							<label class="col-form-label">MAESTRO RESPONSABLE</label>
 							<select name="maestro" class="form-control"> 
 								<?php foreach ($maestro as $column => $value) {?>
-								<option value="<?=$value['nombres'];?>"><?=$value['nombres']?></option>
+								<option value="<?=$value['nombres'] ." " .$value['apellidos']?>"><?=$value['nombres'] ." " .$value['apellidos']?></option>
 								<?php } ?>	
 							</select>
 						</div>
@@ -87,7 +87,7 @@
 							<input type="number" name="integrantes" class="form-control">
 							</div>
 						</div>
-							
+			
 							
 							<label class="col-form-label">FECHA</label>
 							<input type="date" name="fecha" class="form-control"><br>
@@ -154,7 +154,10 @@
 				
 			</footer>
 		</script>
-<script type="text/javascript">
+
+		<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript">
 var formulario1 = document.getElementById('registro1');
 var fdd = document.getElementById('ddd');
 var expresion = /\w+@\w+\.+[a-z]/;
@@ -198,6 +201,14 @@ function validar(ev) {
 formulario1.addEventListener('submit', validar);
 }())
 </script>
-
+<script>
+    $(function() {
+        $('#ms').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '100%'
+        });
+    });
+</script>
 </body>
 </html>
