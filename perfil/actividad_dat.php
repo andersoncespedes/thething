@@ -1,22 +1,7 @@
-	<?php
+<?php
 		include "../php/actividades/actividad.php";
-	
-		$actividad = new actividad();
 		$act1 = new actividad();
-		
-		$act = $act1->getAct();
-		
-		if (isset($_POST['buscar'])) {
-			$busqueda = $_POST['buscar'];
-			$actividad = $actividad->buscarActividad($busqueda);
-		}
-		else{
-	$tamaño = 4;
-		$begin  = ($_GET['pag'] - 1) * $tamaño;
-		$busqueda = NULL;
-		$actividad = $actividad->getActividadlol($tamaño, $begin);
-		}
-		
+		$act = $act1->getActById($_GET['id']);	
 	?>
 
 	<?php
@@ -46,10 +31,6 @@
 		<link rel="shortcut icon" href="img/madara-eternal.ico">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<style type="text/css">
-			a{
-				text-decoration:none;
-				color:black;
-			}
 			.date-p{
 				float: right;
 				font-size: 15px;
@@ -96,74 +77,42 @@
 		<main class="container" style="display: flex; background-color: rgba(0,0,0,0);">
 
 			<div class="wall">
-			
-			<?php if($_SESSION['cuenta'] == 'administrador'){?>
-				<div class="post">
-					<form action="newpost.php" method="GET">
-						<input type="text" name="pos" placeholder="CREAR POST"><input type="submit" name="">
-				
-					</form>
-			
-				</div>	<?php } ?>
 				<?php include "../php/acceso.php"; ?>
-				<?php  $e = 0;
-					if (count($actividad)>0) {
-						foreach ($actividad as $column => $value) {	
-							$e++;
-				?>
-				<a href = "actividad_dat.php?id=<?=$value['id_actividad']?>">
+	
+			
 				<div class="wall-p" style="cursor: pointer;">
-					<span class="date-p"><?php echo $value['fecha'];?></span>
-					<?php if($value['tipo'] == "REALIZADA"){?>
-					<span class="tag-p2" ><?=$value['tipo'];?></span> 
-					<?php } ?>
-					<?php if($value['tipo'] == "DESCARTADA"){?>
-					<span class="tag-p1" ><?=$value['tipo'];?></span> 
-					<?php } ?>
-					<?php if($value['tipo'] == "FUTURA"){?>
-					<span class="tag-p3" ><?=$value['tipo'];?></span> 
-					<?php } ?>
+					<span class="date-p"><?=$act[0]['fecha'];?></span>
+					<span class="tag-p2" ><?=$act[0]['tipo'];?></span> 
+				
+					
 					<div class="wall-t">
 				
-						<h2><?php echo $value['nombre'];?></h2>
+						<h2><?=$act[0]['nombre'];?></h2>
 					</div>
 					<div style="max-width: 100%; text-align: justify;">
-						<?=$value['descripcion'];?>
+						<?=$act[0]['descripcion'];?>
 					</div>
 					
-					<?php if ($value['imagen'] == "imagen/"){ ?>
+					<?php if ($act[0]['imagen'] == "imagen/"){ ?>
 					<?php } else{ ?>
-					<img src="../php/actividades/<?=$value['imagen'];?>">
+					<img src="../php/actividades/<?=$act[0]['imagen'];?>">
 				<?php } ?><br>
-					<b style="float: right;"> <span style="color: blue;">Maestro Responsable:</span> <?=$value['maestro_r'];?></b>
-					<span style="color: red;">Participantes: </span><?=$value['num_integ'];?>
+					<b style="float: right;"> <span style="color: blue;">Maestro Responsable:</span> <?=$act[0]['maestro_r'];?></b>
+					<span style="color: red;">Participantes: </span><?=$act[0]['num_integ'];?>
 					<div class="option">
 						<?php if($_SESSION['cuenta'] == 'administrador'){?>
 					<div class="opciones">
-					<a href="../php/actividades/actividad_controler.php?id=<?=$value['idenm'];?>&delete&img=<?=$value['imagen'];?>">ELIMINAR</a>
+					<a href="../php/actividades/actividad_controler.php?id=<?=$act[0]['idenm'];?>&delete&img=<?=$value['imagen'];?>">ELIMINAR</a>
 				</div>
 				<div class="opciones" style="float: right;">
-					<a href="editar_actividad.php?id=<?=$value['idenm'];?>">EDITAR</a>
+					<a href="editar_actividad.php?id=<?=$act[0]['idenm'];?>">EDITAR</a>
 				</div>
 				<?php } ?>
 			</div>
-						
 				</div><span class = "r" style="display: none;">3</span>
-			<?php 
-		}
-		} 
-
-			?></a>
-			<div style="margin-top: 10px; display: flex; width: 100%;">
-			<?php if (isset($_GET['pag'])) {
-			
-				if ($begin - $tamaño >= 0 ) {?>
-				<a href="?pag=<?=$_GET['pag']-1?>" class = "btn btn-danger">ATRAS</a>
-			<?php } if ($begin + $tamaño < $act ) { ?>
-			 <a href="?pag=<?=$_GET['pag']+1?>" class = "btn btn-success" style = "float:right;">SIGUIENTE</a>
-			 <?php } } ?>
-			</div>
-			</div>
+                        </div>
+	
+	
 			<div style="width: 40%;" class="raro">
 			<div class="wall-s">
 				<div class="title-m">

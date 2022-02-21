@@ -18,6 +18,16 @@
 			return $data;
 
 		}
+		public function getActById($idl)
+		{
+			$query  = "SELECT * FROM actividad WHERE id_actividad = " .$idl;
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			array_pop($data);
+			
+			return $data;
+		}
 		public function getActividad()
 		{
 		

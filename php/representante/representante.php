@@ -76,27 +76,7 @@
 			}
 		
 		
-		public function validarUser($data){
-			$query = "SELECT * FROM usuario WHERE usuario = '".$data['usuario']."'";
-			$result = mysqli_query($this->link, $query);
-			if ($result) {
-				if (mysqli_num_rows($result) > 0) {
-					$integrantes = mysqli_fetch_array($result, MYSQLI_ASSOC);
-					if ($integrantes['pass'] == $data['pass']) {
-						@session_start();
-						$_SESSION['id'] = $integrantes['id'];
-						$_SESSION['usuario'] = $integrantes['usuario'];
-						$_SESSION['pass'] = $integrantes['pass'];
-						mysqli_close($this->link);
-						return true;
-					}
-					else{
-						return false;
-					}
-					
-				}
-			}
-		}
+		
 
 	}
 	
