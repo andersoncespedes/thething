@@ -9,7 +9,7 @@
 		private $link;
 		function __construct()
 		{
-			$this->conn  = new conexions();
+			$this->conn  = new conexio();
 			$this->link  = $this->conn->conectar();
 		}
 	

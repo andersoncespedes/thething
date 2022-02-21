@@ -1,6 +1,9 @@
 	<?php
 			include "../php/maestros/maestro.php";
+			include "../php/estudiantes/estudiante.php";
 			$maestro = new maestro;
+			$estudiante = new estudiante;
+			$estudiantes = $estudiante->getEstudiante();
 			$maestro = $maestro->getMaestro();
 			session_start();
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
@@ -87,10 +90,18 @@
 							<input type="number" name="integrantes" class="form-control">
 							</div>
 						</div>
-			
-							
 							<label class="col-form-label">FECHA</label>
 							<input type="date" name="fecha" class="form-control"><br>
+							<h2>Participantes</h2>
+							<div class="form-check" style = "margin-bottom:5px;">
+								<?php $d =0; foreach($estudiantes as $column => $value){ ?>
+						  		<input class="form-check-input" type="checkbox" value="<?=$value['id_estudiante'] ?>" name = "<?=$d++;?>" checked>
+  								<label class="form-check-label">
+   							 	<?=$value['nombres'] ." " .$value['apellidos']; ?><br>
+ 								 </label>
+								  <?php } ?>
+							</div>
+							<input type ="number" style = "display:none;" name = "num_check" value = "<?=$d?>">
 							<input type="submit" name="crear" value="CREAR" class="btn btn-warning" style="width: 100%;">
 						</form>
 						
