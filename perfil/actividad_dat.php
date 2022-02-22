@@ -1,6 +1,10 @@
 <?php
 		include "../php/actividades/actividad.php";
+		include "../php/estudiantes/estudiante.php";
 		$act1 = new actividad();
+		$estudi = new estudiante();
+		$estud = $estudi->getActEst($_GET['id']);
+
 		$act = $act1->getActById($_GET['id']);	
 	?>
 
@@ -99,20 +103,58 @@
 				<?php } ?><br>
 					<b style="float: right;"> <span style="color: blue;">Maestro Responsable:</span> <?=$act[0]['maestro_r'];?></b>
 					<span style="color: red;">Participantes: </span><?=$act[0]['num_integ'];?>
-					<div class="option">
-						<?php if($_SESSION['cuenta'] == 'administrador'){?>
-					<div class="opciones">
-					<a href="../php/actividades/actividad_controler.php?id=<?=$act[0]['idenm'];?>&delete&img=<?=$value['imagen'];?>">ELIMINAR</a>
-				</div>
-				<div class="opciones" style="float: right;">
-					<a href="editar_actividad.php?id=<?=$act[0]['idenm'];?>">EDITAR</a>
-				</div>
-				<?php } ?>
-			</div>
+					
+		
+			
 				</div><span class = "r" style="display: none;">3</span>
-                        </div>
+				<div class="wall-p">
+					<div class="title-m">
+					<h2>ESTUDIANTES</h2>	
+					
+				<hr class="stylerf">
+			</div>
+		
+								<table class="table table-striped table-bordered table-hover">
+							<tr class="bg-pboots">
+								<th>NOMBRE</th>
+								<th>APELLIDO</th>
+								<th>CEDULA</th>
+								<th>GRADO</th>
+							
+
+							
+
+										
+							</tr>
+								<?php  $i = 0;
+					if (count($estud)>0) {
+						foreach ($estud as $column => $value) {	
+					$i++;
+				?>
+						<tr class="elsegundo" style="text-align: center;">
+							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombres'];?></a></td>
+							<td><?php echo $value['apellidos'];?></td>
+							<td><?php echo $value['cedula'];?></td>
+							<td><?php echo $value['grado'];?></td>
+						
+							
+				
+						
+						</tr>
+					<?php }
+						} if($i == 0){?>
+				<tr>
+				
+							<td>No hay datos</td>	
+							
+								<?php }  ?>
+				</tr>
+
+					</table>
+						</div>
+			</div>
 	
-	
+					
 			<div style="width: 40%;" class="raro">
 			<div class="wall-s">
 				<div class="title-m">

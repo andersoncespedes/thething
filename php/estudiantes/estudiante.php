@@ -35,6 +35,19 @@
 			}
 		}
 
+		public function getActEst($id)
+		{
+			$query  = " SELECT E.nombres, E.apellidos,E.cedula, E.grado
+				FROM participante D
+				 JOIN estudiante E
+				ON E.id_estudiante = D.id_estudiante WHERE D.id_actividad = " .$id;
+			$result = mysqli_query($this->link, $query);
+			$data   = array();
+  			while ($data[] = mysqli_fetch_assoc($result));
+  			array_pop($data);
+			return $data;
+		}
+
 		public function getEstudianteById($id=NULL)
 		{
 		if (!empty($id)) 
