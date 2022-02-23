@@ -1,23 +1,19 @@
 	<?php
 		include "../php/estadistica/estadistica.php";
 		$estadistica = new estadistica;
-		$estadistica_z = new estadistica;
-		$estadistica_n = new estadistica;
-		$estadistica_est = new estadistica;
-		$estadistica_estm = new estadistica;
-		$estadistica_estu = new estadistica;
-		$estadistica_integ = new estadistica;
-		$estadistica = $estadistica->getEstadistica();	
-		$estadistica_z = $estadistica_z->getEstadisticaByN();
-		$estadistica_n = $estadistica_n->getEstadisticaByname();
-		$estadistica_est = $estadistica_est->getActEst();
-		$estadistica_estm = $estadistica_estm->getMaesEst();
-		$estadistica_estu = $estadistica_estu->getUserEst();
+		$estadistic = $estadistica->getEstadistica();	
+		$estadistica_z = $estadistica->getEstadisticaByN();
+		$estadistica_n = $estadistica->getEstadisticaByname();
+		$estadistica_est = $estadistica->getActEst();
+		$estadistica_estm = $estadistica->getMaesEst();
+		$estadistica_estu = $estadistica->getUserEst();
+		$estadistica_estud = $estadistica->getUserEstud();
+
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
-		$estadistica_integ = $estadistica_integ->getEstadisticaByInteg($tamaño, $begin);
+		$estadistica_integ = $estadistica->getEstadisticaByInteg($tamaño, $begin);
 		$i = 0;
-		foreach ($estadistica_z as $column => $value) {	
+		foreach ($estadistic as $column => $value) {	
 		$i++;
 		}
 	?>
@@ -146,7 +142,15 @@
 							
 							<?=$estadistica_estu?>
 						</div>
+						<div class="cont" style="background-color: #b445ed">
+							<div class="cont-img">
+								<img src="../img/de-la-a-a-la-z.png">
+							</div>	
+							<?=$estadistica_estud?>
+						</div>
 					</div>
+					</div>
+				
 			</div>
 			<div class="wall-p" style="width: 50%;">
 					<div class="title-m">
@@ -180,8 +184,8 @@
 				<div style="width: 100%; display:flex; flex-wrap: wrap;">
 							<div style="width: 40%; margin: auto; text-align: left;">
 							<?php 
-					if (count($estadistica)>0) {
-						foreach ($estadistica as $column => $value) {
+					if (count($estadistic)>0) {
+						foreach ($estadistic as $column => $value) {
 
 							?>
 							 
@@ -283,7 +287,7 @@
 					var pieData1 = [<?php 
 						
 						$i 	   = 0;
-					foreach ($estadistica as $column => $value) { ?>
+					foreach ($estadistic as $column => $value) { ?>
 				{
 					
 					value: <?=$value['suma']?>,

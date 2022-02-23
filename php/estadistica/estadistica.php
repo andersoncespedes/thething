@@ -66,6 +66,20 @@
 			return $men;
 
 		}
+		public function getUserEstud()
+		{
+			$query  = "SELECT * FROM estudiante";
+			$result = mysqli_query($this->link, $query);
+			$data   = mysqli_affected_rows($this->link); 
+			if ($data > 1) {
+			 	$men =  $data ." ESTUDIANTES";
+			 } 
+			else{
+				$men =  $data ." ESTUDIANTE";
+			}
+			return $men;
+
+		}
 			public function getEstadisticaByN()
 		{
 			$query  = "SELECT * FROM estadistica";

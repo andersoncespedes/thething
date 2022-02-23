@@ -115,7 +115,7 @@ main{
 	
 }
 .cont{
-	width: 33.33%;
+	width: 25%;
 	padding: 20px;
 	text-align: center;
 }
@@ -126,7 +126,8 @@ main{
 	margin: auto;
 }
 .cont .cont-img img{
-	width: 100%;}
+	width: 100%;
+}
 .drop ul{
 	list-style: none;
 	width: 100%;
