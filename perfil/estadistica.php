@@ -8,6 +8,8 @@
 		$estadistica_estm = $estadistica->getMaesEst();
 		$estadistica_estu = $estadistica->getUserEst();
 		$estadistica_estud = $estadistica->getUserEstud();
+		$estadistica_estudiante = $estadistica->getEstadisticaByEstudiante();
+
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$estadistica_integ = $estadistica->getEstadisticaByInteg($tamaño, $begin);
@@ -15,7 +17,7 @@
 		foreach ($estadistica_z as $column => $value) {	
 		$i++;
 		}
-		echo $i;
+		
 	?>
 
 	<?php
@@ -200,6 +202,38 @@
 					</div>
 		
 			</div>
+			
+			</div>
+				</div>
+				</div>
+				<div class="wall-p" >
+					<div class="title-m">
+						<h2>ESTADISTICA DE GRADOS</h2>	
+						<hr class="stylerf">
+					</div>
+				<div style="width: 100%;display: flex; flex-wrap: wrap;">
+				<div style="width: 40%; margin: auto; text-align: right;">
+				<h3>Grados:</h3><br>
+							<?php 
+					if (count($estadistica_estudiante)>0) {
+						foreach ($estadistica_estudiante as $column => $value) {
+
+							?>
+							 
+						<?php echo $value['grado']. ' = ' .$value['num_est']; ?><br>
+				<?php 
+		}
+		} 
+		?>
+				
+			</div>
+				<div style="width: 60%;">
+						<canvas id="canvas4"  style=""></canvas>	
+					</div>
+			
+			</div>
+			</div>
+			
 			</div>
 		</main>
 
@@ -267,6 +301,42 @@
 		]
 
 	}
+	var barChartData1 = {
+		labels : [
+					<?php 
+
+					$color = ["#F7464A","#46BFBD","#FDB45C","#949FB1","#4D5360"];$b = 0;
+						foreach ($estadistica_estudiante as $column => $value) { ?>
+					'<?php echo $value['grado'];?>',
+				<?php } ?>
+
+		],
+		datasets : [
+			{
+				fillColor : "#F7464A",
+				strokeColor : "#82E0AA",
+				highlightFill: "#FDB45C",
+				highlightStroke: "#82E0AA",
+				data : [
+				<?php 
+			
+	
+					if (count($estadistica_estudiante)>0) {
+						foreach ($estadistica_estudiante as $column => $value) {	
+						 
+							?>
+
+					<?=$value['num_est']?>,
+				<?php 
+		}
+		} 
+			?>
+				
+				]
+			}
+		]
+
+	}
 		var pieData = [<?php 
 						
 						$i 	   = 0;
@@ -306,6 +376,10 @@
 	window.onload = function(){
 		var ctx = document.getElementById("canvas").getContext("2d");
 		window.myBar = new Chart(ctx).Bar(barChartData, {
+		responsive : true
+		});
+		var ctx3 = document.getElementById("canvas4").getContext("2d");
+		window.myBar = new Chart(ctx3).Bar(barChartData1, {
 		responsive : true
 		});
 		var ctx1 = document.getElementById("canvas1").getContext("2d");

@@ -117,6 +117,15 @@
 			array_pop($data);
 			return $data;	
 		}
+		public function getEstadisticaByEstudiante()
+		{
+			$query  = "SELECT SUM(est_estud) AS num_est, grado FROM estudiante GROUP BY grado";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			array_pop($data);
+			return $data;	
+		}
 			public function getEstadisticaByInteg($tamaño, $begin)
 		{	
 			$cont = 0;
