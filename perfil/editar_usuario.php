@@ -84,12 +84,12 @@
 						<li><span style="color: red;">USUARIO:</span>  <?=$user[0]['usuario'];?></li>
 						<li><span style="color: red;">CORREO:</span>  <?=$user[0]['correo'];?></li>
 
-					</ul><br>
-					<h3>SEGURIDAD</h3>
-						<hr>
-						<?php if ($securi[0]['pregunta1'] == " ") {
+					</ul><br>		<?php if (!isset($securi[0]['pregunta1'])) {
 
 						} else{ ?>
+					<h3>SEGURIDAD</h3>
+						<hr>
+				
 
 					<ul>
 						<li><span style="color: red;"><?=$securi[0]['pregunta1'];?>: </span><?=$securi[0]['respuesta1'];?></li>
@@ -112,25 +112,25 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?=$user[0]['nombres'];?>" style="color: black !important;">
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" value="<?=$user[0]['nombres'];?>" style="color: black !important;">
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="<?=$user[0]['apellidos'];?>" style="color: black !important;">
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido" value="<?=$user[0]['apellidos'];?>" style="color: black !important;">
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?=$user[0]['cedula'];?>" style="color: black !important;">
+								<input type="text" name="cedula" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" value="<?=$user[0]['cedula'];?>" style="color: black !important;">
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" value="<?=$user[0]['correo'];?>" placeholder="example@example.com" style="color: black !important;">
+								<input type="text" name="correo" maxlength = "30" id="correo" class="form-control" value="<?=$user[0]['correo'];?>" placeholder="example@example.com" style="color: black !important;">
 							</div>
 							</div>
 
@@ -147,13 +147,13 @@
 											<div class="col-md-12">
 							<div class="form-group">
 								<label>usuario</label>
-								<input type="text" name="usuario" id="usuario" class="form-control" value="<?=$user[0]['usuario'];?>" placeholder="usuario" style="color: black !important;">
+								<input type="text" name="usuario" id="usuario" maxlength = "20" class="form-control" value="<?=$user[0]['usuario'];?>" placeholder="usuario" style="color: black !important;">
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>password</label>
-								<input type="password" name="pass" id="pass" class="form-control" value="<?=$user[0]['pass'];?>" placeholder="password" style="color: black !important;">
+								<input type="password" name="pass" id="pass" maxlength = "20" class="form-control" value="<?=$user[0]['pass'];?>" placeholder="password" style="color: black !important;">
 							</div>
 							</div>
 								<div class="col-md-12">
@@ -222,20 +222,20 @@
 								<div class="col-md-12">
 							<div class="form-group">
 								<label>Respuesta Numero 1</label>
-								<input type="password" name="respuesta1" id="servicio" class="form-control" placeholder="Respuesta1" style="color: black !important;">
+								<input type="password" name="respuesta1" maxlength = "20" id="servicio" class="form-control" placeholder="Respuesta1" style="color: black !important;">
 							</div>
 							</div>
 						
 											<div class="col-md-12">
 							<div class="form-group">
 								<label>Respuesta Numero 2</label>
-								<input type="password" name="respuesta2" id="usuario" class="form-control" value="" placeholder="Respuesta2" style="color: black !important;">
+								<input type="password" name="respuesta2" maxlength = "20" id="usuario" class="form-control" value="" placeholder="Respuesta2" style="color: black !important;">
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Respuesta Numero 3</label>
-								<input type="password" name="respuesta3" id="pass" class="form-control" value="" placeholder="Respuesta3" style="color: black !important;">
+								<input type="password" name="respuesta3" maxlength = "20" id="pass" class="form-control" value="" placeholder="Respuesta3" style="color: black !important;">
 							</div>
 							</div>
 							
@@ -245,7 +245,7 @@
 			</div>	<center>
 				<div class="form-group" style="width: 50%; text-align: center;">
 								<label>CONTRASEÑA</label>
-								<input type="password" name="pass" id="pass" class="form-control" value="" placeholder="Contraseña" style="color: black !important;">
+								<input type="password" name="pass" id="pass" maxlength = "20" class="form-control" value="" placeholder="Contraseña" style="color: black !important;">
 							</div>
 						</center>
 							<input type="submit" name="editar_p" class="btn btn-warning btn-block"  style="width: 50%; margin: auto;"></form>

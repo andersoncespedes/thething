@@ -31,7 +31,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Cedula</label>
-								<input type="text" name="cedula" id="Cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="number" maxlength = "20"  name="cedula" id="Cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
 							</div>
 							</div>
 							<input type="submit" name="recuperar" class="btn btn-info btn-block" value="Ingresar">
@@ -66,11 +66,11 @@
 					<form action="php/users/user_controler.php" method="POST">
 						<div class="cont-in">
 							<label>USUARIO</label>
-							<input type="text" name="usuario" placeholder="Usuario">
+							<input type="text" name="usuario" placeholder="Usuario" maxlength = "40">
 						</div>
 						<div class="cont-in">
 							<label>CONTRASEÑA</label>
-							<input type="password" name="pass" placeholder="Contraseña">
+							<input type="password" name="pass" placeholder="Contraseña" maxlength = "20">
 						</div>
 						<a href="#ventana" data-toggle="modal">Recuperar contraseña</a>
 						<div class="cont-ina">

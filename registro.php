@@ -19,7 +19,7 @@
 			Please Wait...
 		</div>
 
-	<main style="width: 100%;">asdadada
+	<main style="width: 100%;">
 		<div class="back">
 			<a href="index.php"><<</a>
 		</div>
@@ -36,19 +36,19 @@
 					<form action="php/users/user_controler.php" method="POST">
 						<div class="cont-in">
 							<label>USUARIO</label>
-							<input type="text" name="usuario" placeholder="Usuario" required>
+							<input type="text" name="usuario" maxlength = "20" placeholder="Usuario" required>
 						</div>
 						<div class="cont-in">
 							<label>CONTRASEÑA</label>
-							<input type="password" name="pass" placeholder="Contraseña" required>
+							<input type="password" name="pass" maxlength = "20" placeholder="Contraseña" required>
 						</div>
 							<div class="cont-in">
 							<label>CEDULA</label>
-							<input type="number" name="cedula" placeholder="Cedula" required>
+							<input type="number" name="cedula" maxlength = "20"  placeholder="Cedula" required>
 						</div>
 						<div class="cont-in">
 							<label>CORREO</label>
-							<input type="email" name="correo" placeholder="Correo" required>
+							<input type="email" name="correo" maxlength = "20" placeholder="Correo" required>
 						</div>
 						
 						<div class="cont-ina">

@@ -109,7 +109,7 @@
 				</div><span class = "r" style="display: none;">3</span>
 				<div class="wall-p">
 					<div class="title-m">
-					<h2>ESTUDIANTES</h2>	
+					<h2>ESTUDIANTES PARTICIPANTES</h2>	
 					
 				<hr class="stylerf">
 			</div>

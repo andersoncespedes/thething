@@ -92,7 +92,7 @@
 						</div>
 							<label class="col-form-label">FECHA</label>
 							<input type="date" name="fecha" class="form-control"><br>
-							<h2>Participantes</h2>
+							<h2>PARTICIPANTES</h2>
 							<div class="form-check" style = "margin-bottom:5px;">
 								<?php $d =0; foreach($estudiantes as $column => $value){ ?>
 						  		<input class="form-check-input" type="checkbox" value="<?=$value['id_estudiante'] ?>" name = "<?=$d++;?>" checked>

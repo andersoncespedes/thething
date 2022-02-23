@@ -83,7 +83,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre"  style="color: black !important;" required>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre"  style="color: black !important;" required>
 					
 								<input type="text" name="id_m" class="form-control" value = "<?=$_GET['id']?>" placeholder="Nombre"  style="display: none;" >
 							
@@ -92,26 +92,26 @@
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido"  style="color: black !important;" required>
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido"  style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="text" name="cedula" id="cedula"  maxlength = "20" class="form-control" placeholder="Cedula" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
+								<input type="text" name="correo" id="correo" maxlength = "30" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
 							</div>
 							</div>
 						
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Telefono</label>
-								<input type="number" name="telefono" id="servicio" class="form-control" placeholder="0412-" style="color: black !important;" required>
+								<input type="number" maxlength = "20" name="telefono" id="servicio" class="form-control" placeholder="0412-" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
@@ -144,46 +144,48 @@
 					</div>
 					<div class="modal-body">
 						<div class="container">
-							<form action="../php/estudiantes/estudiante_controler.php" method="POST" id="registro2" name ="registro2">
+							<form action="../php/maestros/maestro_controler.php" method="POST" id="registro2" name ="registro2">
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?=$estudiant[0]['nombres'];?>" style="color: black !important;" required>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" value="<?=$nombres?>" style="color: black !important;" required>
 					
-								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$_GET['id']?>" style="display: none;" >
+								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$id?>" style="display: none;" >
 							
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="<?=$estudiant[0]['apellidos'];?>" style="color: black !important;" required>
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido" value="<?=$apellidos?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?=$estudiant[0]['cedula'];?>" style="color: black !important;" required>
+								<input type="text" name="cedula" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" value="<?=$cedula?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
-								<label>Grado </label>
-								<select class = "form-control" name = "grado">
-								<?php foreach ($grado as $key => $value) {?>
-									<option value = "<?=$value['grado'] .' ' .$value['seccion'];?>"><?= $value['grado'] ." " .$value['seccion'];?></option>
-								<?php } ?>
-								</select>
+								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
+								<input type="text" name="correo" maxlength = "30" id="correo" class="form-control" placeholder="example@example.com" value="<?=$correo?>" style="color: black !important;" required>
 							</div>
 							</div>
 						
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Fecha de naciomiento</label>
-								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990" value="<?=$estudiant[0]['nacimiento'];?>" style="color: black !important;" required>
+								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990" value="<?=$nacimiento?>" style="color: black !important;" required>
 							</div>
 							</div>
-							<input type="submit" name="editar" class="btn btn-info btn-block" value="Ingresar">
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Direccion</label>
+								<textarea class="form-control" placeholder="Direccion"  name="direccion" style="max-height: 80px; min-height: 80px; color: black !important;" required><?=$direccion?></textarea>
+							</div>
+							</div>
+							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form>
 
 							</div>
@@ -211,19 +213,25 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" style="color: black !important;" required>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" style="color: black !important;" required>
+								<input type="text" name="apellido" maxlength = "20"   id="apellido" class="form-control" placeholder="Apellido" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="text" name="cedula" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Fecha de nacimiento</label>
+								<input type="date" name="nacimiento" maxlength = "20"  class="form-control" placeholder="Cedula" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
@@ -236,12 +244,7 @@
 								</select>
 							</div>
 							</div>
-							<div class="col-md-12">
-							<div class="form-group">
-								<label>Fecha de naciomiento</label>
-								<input type="date" name="nacimiento" id="servicio" class="form-control" placeholder="1990"  style="color: black !important;" required>
-							</div>
-							</div>
+			
 						
 							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form><br>
@@ -279,6 +282,7 @@
 								<th>APELLIDO</th>
 								<th>CEDULA</th>
 								<th>GRADO</th>
+								<th>EDAD</th>
 								<th>OPCION</th>
 
 							
@@ -295,6 +299,8 @@
 							<td><?php echo $value['apellidos'];?></td>
 							<td><?php echo $value['cedula'];?></td>
 							<td><?php echo $value['grado'];?></td>
+							<td><?php echo (date('Y') - $value['nacimiento']);?> Años</td>
+
 						
 							
 				
@@ -335,6 +341,8 @@
 								<th>CEDULA</th>
 								<th>CORREO</th>
 								<th>TELEFONO</th>
+							
+
 								<th>OPCION</th>
 
 							
@@ -351,9 +359,10 @@
 							<td><?php echo $value['apellido_rep'];?></td>
 							<td><?php echo $value['cedula_rep'];?></td>
 							<td><?php echo $value['correo_rep'];?></td>
+							
 							<td><?php echo $value['telefono_rep'];?></td>
 							
-							<td><a href="../php/representante/representante_controler.php?id=<?=$value['id_representante'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>

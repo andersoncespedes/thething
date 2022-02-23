@@ -161,7 +161,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" value="<?=$nombres?>" style="color: black !important;" required>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" value="<?=$nombres?>" style="color: black !important;" required>
 					
 								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$id?>" style="display: none;" >
 							
@@ -170,19 +170,19 @@
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" value="<?=$apellidos?>" style="color: black !important;" required>
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido" value="<?=$apellidos?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" value="<?=$cedula?>" style="color: black !important;" required>
+								<input type="text" name="cedula" maxlength = "20"  id="cedula" class="form-control" placeholder="Cedula" value="<?=$cedula?>" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" value="<?=$correo?>" style="color: black !important;" required>
+								<input type="text" name="correo" maxlength = "20" id="correo" class="form-control" placeholder="example@example.com" value="<?=$correo?>" style="color: black !important;" required>
 							</div>
 							</div>
 						
@@ -226,37 +226,37 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre</label>
-								<input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" style="color: black !important;" required>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Apellido</label>
-								<input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellido" style="color: black !important;" required>
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Cedula</label>
-								<input type="text" name="cedula" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="text" name="cedula" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Correo <STRONG>(solo minusculas).</STRONG></label>
-								<input type="text" name="correo" id="correo" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
+								<input type="text" name="correo" maxlength = "30" id="correo" class="form-control" placeholder="example@example.com" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Años de servicio</label>
-								<input type="number" name="aos_s" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
+								<input type="date" name="aos_s" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Fecha de naciomiento</label>
-								<input type="date" name="servicio" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
+								<input type="date" name="servicio"  id="servicio" class="form-control" placeholder="1990" style="color: black !important;" required>
 							</div>
 							</div>
 							<div class="col-md-12">
@@ -317,7 +317,7 @@
 							<td><?php echo $value['cedula'];?></td>
 							<td><?php echo $value['correo'];?></td>
 							<td><?php echo $value['nacimiento'];?></td>
-							<td><?php echo (date('Y') - $value['servicio']);?></td>
+							<td><?php echo (date('Y') - $value['servicio']);?> Años</td>
 							<td><a href="../php/maestros/maestro_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
