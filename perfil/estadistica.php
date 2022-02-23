@@ -8,14 +8,14 @@
 		$estadistica_estm = $estadistica->getMaesEst();
 		$estadistica_estu = $estadistica->getUserEst();
 		$estadistica_estud = $estadistica->getUserEstud();
-
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$estadistica_integ = $estadistica->getEstadisticaByInteg($tamaño, $begin);
 		$i = 0;
-		foreach ($estadistic as $column => $value) {	
+		foreach ($estadistica_z as $column => $value) {	
 		$i++;
 		}
+		echo $i;
 	?>
 
 	<?php
