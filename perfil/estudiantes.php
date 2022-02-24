@@ -5,7 +5,9 @@
 		$grado = new grado;
 		$grado = $grado->getGrado();
 		$estudiante = $estudiantes->getEstudiante();
+		
 		if(isset($_GET['id'])){
+			$vacuna = $estudiantes->getVacunaById($_GET['id']);
 			$estudiant = $estudiantes->getEstudianteById($_GET['id']);
 		}
 		
@@ -195,7 +197,56 @@
 			</div>
 		</div>
 		</div>
-
+		<div class="modal fade" id="ventana6">
+		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
+		<div class="col-md-5" style="margin: auto;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						
+						<h3 class="modal-title">INGRESE LOS SIGUIENTES DATOS</h3>
+						
+						
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<form action="../php/estudiantes/estudiante_controler.php" method="POST" id="registro1" name ="registro1">
+							<input type="text" name="id" value="<?=$_GET['id']?>"  class="form-control" placeholder="Nombre" style="color: black !important; display:none;">
+							<div class="col-md-12">
+								<div class="form-group">
+								<label> Nombre de la vacuna</label>
+								<input type="text" name="nombre_vacuna" maxlength = "20"  class="form-control" placeholder="Nombre" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Primera dosis</label>
+								<input type="date" name="primera_dosis" maxlength = "20"   id="apellido" class="form-control" placeholder="Apellido" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Segunda dosis</label>
+								<input type="date" name="segunda_dosis" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Tercera dosis</label>
+								<input type="date" name="tercera_dosis" maxlength = "20"  class="form-control" placeholder="Cedula" style="color: black !important;" required>
+							</div>
+							</div>
+						
+							<input type="submit" name="crear_vacuna" class="btn btn-info btn-block" value="Ingresar">
+							</form><br>
+							<div id="ddd" style="margin: auto;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 	<div class="modal fade" id="ventana2">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
@@ -322,7 +373,7 @@
 					
 				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
 				<a href="#ventana5" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Representante</a></span>
-
+				<a href="#ventana6" class="btn btn-warning" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Vacunacion</a></span>
 				<?php } ?>
 			</div>
 
@@ -363,6 +414,53 @@
 							<td><?php echo $value['telefono_rep'];?></td>
 							
 							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+						</tr>
+					<?php }
+						} if($i == 0){?>
+				<tr>
+				
+							<td>No hay datos</td>	
+							
+								<?php }  ?>
+				</tr>
+
+					</table>
+			
+				<?php } ?>
+			</div>
+			<?php if (isset($_GET['id']) && isset($vacuna[0]['nombre_vacuna'])) { ?>
+			<div class="wall-p">
+					<div class="title-m">
+					<h2>VACUNACION </h2>	
+					
+				<hr class="stylerf">
+			</div>
+		
+								<table class="table table-striped table-bordered table-hover">
+							<tr class="bg-pboots">
+								<th>NOMBRE DE LA VACUNA</th>
+								<th>PRIMERA DOSIS</th>
+								<th>SEGUNDA DOSIS</th>
+								<th>TERCERA DOSIS</th>
+							
+
+								<th>OPCION</th>
+
+							
+
+										
+							</tr>
+								<?php  $i = 0;
+					if (count($vacuna)>0) {
+						foreach ($vacuna as $column => $value) {	
+					$i++;
+				?>
+						<tr class="elsegundo" style="text-align: center;">
+							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombre_vacuna'];?></a></td>
+							<td><?php echo $value['fecha_primera_d'];?></td>
+							<td><?php echo $value['fecha_segunda_d'];?></td>
+							<td><?php echo $value['fecha_tercera_d'];?></td>		
+							<td><a href="../php/estudiantes/estudiante_controler.php?delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>

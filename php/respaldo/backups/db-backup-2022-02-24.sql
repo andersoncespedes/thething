@@ -13,8 +13,8 @@ CREATE TABLE `actividad` (
   PRIMARY KEY (`id_actividad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 
-INSERT INTO actividad VALUES("88","EfemÃ©rides educaciÃ³n inicial","REALIZADA","natalicio de Ezequiel Zamora por parte de los estudiantes de 2 grado seccion a","2022-02-01","imagen/272875709_1332614477200082_995055237535050035_n.jpg","488264545","Liseth ","4");
-INSERT INTO actividad VALUES("89","Visita del personal de INPARQUES y bomberos forestales del est","REALIZADA","charla de primeros auxilios (bomberitos por un dÃ­a) y charla sobre el cuidando del medio ambiente y nuestra madre tierra","2022-02-05","imagen/272698101_1330416354086561_4882529706499729040_n.jpg","2551880","Liseth  Bolivar","15");
+INSERT INTO actividad VALUES("88","Efemerides educacion inicial","REALIZADA","natalicio de Ezequiel Zamora por parte de los estudiantes de 2 grado seccion a","2022-02-01","imagen/272875709_1332614477200082_995055237535050035_n.jpg","488264545","Liseth ","4");
+INSERT INTO actividad VALUES("89","Visita del personal de INPARQUES","REALIZADA","charla de primeros auxilios (bomberitos por un dia) y charla sobre el cuidando del medio ambiente y nuestra madre tierra","2022-02-05","imagen/272698101_1330416354086561_4882529706499729040_n.jpg","2551880","Liseth ","15");
 
 
 
@@ -32,8 +32,8 @@ CREATE TABLE `estadistica` (
   PRIMARY KEY (`id_estadistica`)
 ) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
-INSERT INTO estadistica VALUES("85","REALIZADA","2022-02-01","1","EfemÃ©rides educaciÃ³n inicial","488264545","Liseth ","4");
-INSERT INTO estadistica VALUES("86","REALIZADA","2022-02-05","1","Visita del personal de INPARQUES y bomberos forestales del estado bolivar","2551880","Liseth  Bolivar","15");
+INSERT INTO estadistica VALUES("85","REALIZADA","2022-02-01","1","Efemerides educacion inicial","488264545","Liseth ","4");
+INSERT INTO estadistica VALUES("86","REALIZADA","2022-02-05","1","Visita del personal de INPARQUES","2551880","Liseth ","15");
 
 
 
@@ -49,11 +49,9 @@ CREATE TABLE `estudiante` (
   `est_estud` int(100) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_estudiante`),
   UNIQUE KEY `cedula` (`cedula`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
-INSERT INTO estudiante VALUES("15","martin","martinez","145654545","3er Grado Seccion C","2002","1");
-INSERT INTO estudiante VALUES("16","anderson","aacasa","123456788","3er Grado Seccion C","2017","1");
-INSERT INTO estudiante VALUES("17","raul","david","123456789","3er Grado Seccion C","2013","1");
+INSERT INTO estudiante VALUES("16","Jhoan ","Rivero","256667835","2do Grado Seccion A","2016","1");
 
 
 
@@ -102,14 +100,8 @@ CREATE TABLE `participante` (
   KEY `id_estudiante` (`id_estudiante`),
   CONSTRAINT `participante_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `participante_ibfk_2` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiante` (`id_estudiante`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
-INSERT INTO participante VALUES("89","17","88","");
-INSERT INTO participante VALUES("90","16","88","");
-INSERT INTO participante VALUES("91","15","88","");
-INSERT INTO participante VALUES("94","17","89","");
-INSERT INTO participante VALUES("95","16","89","");
-INSERT INTO participante VALUES("96","15","89","");
 
 
 
@@ -127,10 +119,8 @@ CREATE TABLE `representante` (
   PRIMARY KEY (`id_representante`),
   KEY `id_estudiante` (`id_estudiante`),
   CONSTRAINT `representante_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiante` (`id_estudiante`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
-INSERT INTO representante VALUES("1","anderson","ASDAD","27010387","54636456","andersontrabajos2@gmail.com","16","11");
-INSERT INTO representante VALUES("2","anderson","ASDAD","1123454252","0412888888","andersontrabajossss2@gmail.com","17","asdasdkjafijsdifj soifjsoid jiojs");
 
 
 
@@ -149,8 +139,8 @@ CREATE TABLE `seguridad_p` (
   PRIMARY KEY (`id_seguridad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
-INSERT INTO seguridad_p VALUES("13","26","Â¿Nombre de tu primer hijo?","aaaa","Â¿Nombre de tus padres?","aaaa","Â¿Marca de tu primer auto?","aaaa","1");
-INSERT INTO seguridad_p VALUES("14","27","Â¿Nombre de tu primer hijo?","hola","Â¿Nombre de tus padres?","holas","Â¿Marca de tu primer auto?","hola1","0");
+INSERT INTO seguridad_p VALUES("13","26","¿Nombre de tu primer hijo?","aaaa","¿Nombre de tus padres?","aaaa","¿Marca de tu primer auto?","aaaa","1");
+INSERT INTO seguridad_p VALUES("14","27","¿Nombre de tu primer hijo?","hola","¿Nombre de tus padres?","holas","¿Marca de tu primer auto?","hola1","0");
 
 
 
@@ -175,6 +165,23 @@ CREATE TABLE `usuario` (
 INSERT INTO usuario VALUES("26","anderson","cespedes","27010387","1999-11-15","aaaax","xxxx","andersontrabajos2@gmail.com","imagen/IMG_20220201_110111.jpg","administrador","desactvado");
 INSERT INTO usuario VALUES("27","","","21222529","","holaxxx","1234567","andersontrabajos2@gmail.com","imagen/descarga.png","corriente","desactvado");
 INSERT INTO usuario VALUES("28","","","123456","","ander","123456","andersontrabajos2@gmail.com","imagen/descarga.png","corriente","desactvado");
+
+
+
+
+
+CREATE TABLE `vacunacion` (
+  `id_vacuna` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_vacuna` varchar(40) NOT NULL,
+  `fecha_primera_d` varchar(40) NOT NULL,
+  `fecha_segunda_d` varchar(40) NOT NULL,
+  `fecha_tercera_d` varchar(40) NOT NULL,
+  `id_estudiante` int(11) NOT NULL,
+  PRIMARY KEY (`id_vacuna`),
+  KEY `id_estudiante` (`id_estudiante`),
+  CONSTRAINT `vacunacion_ibfk_1` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiante` (`id_estudiante`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 

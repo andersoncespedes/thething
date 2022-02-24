@@ -27,13 +27,22 @@
 			header('location: ../../perfil/maestros.php?id=' .$_GET['id']. 'error=true');
 		}
 	}
+	if (isset($_POST['crear_vacuna'])) {
+		if ($estudiante->newVacuna($_POST)) {
+			header('location: ../../perfil/estudiantes.php?id=' .$_POST['id']. '&success=true');
+		}
+		else{
+			header('location: ../../perfil/estudiantes.php?id=' .$_POST['id']. '&error=true');
+		}
+	}
+
 
 	if (isset($_GET['delete'])) {
 		if ($estudiante->deleteEstudiante($_GET['id'])) {
-			header('location: ../../perfil/estudiantes.php?d_maestro=1&id_d=' .$_GET['id']. 'success=true');
+			header('location: ../../perfil/estudiantes.php?d_maestro=1&id_d=' .$_GET['id']. '&success=true');
 		}
 		else{
-			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. 'success=false');
+			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. '&success=false');
 		}
 	}
 

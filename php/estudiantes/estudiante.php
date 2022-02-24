@@ -34,6 +34,16 @@
 				return false;
 			}
 		}
+		public function newVacuna($data)
+		{
+			$query  = "INSERT INTO vacunacion(nombre_vacuna, fecha_primera_d, fecha_segunda_d, fecha_tercera_d, id_estudiante) VALUES('".$data['nombre_vacuna']."','".$data['primera_dosis']."', '".$data['segunda_dosis']."', '".$data['tercera_dosis']."', '".$data['id']."')";
+			$result = mysqli_query($this->link, $query);
+			if (mysqli_affected_rows($this->link) > 0){
+				return true;
+			}else {
+				return false;
+			}
+		}
 
 		public function getActEst($id)
 		{
@@ -76,6 +86,23 @@
 			else{
 				return false;
 			}
+		}
+		public function getVacunaById($id=NULL)
+		{
+		if (!empty($id)) 
+			{
+				$query  = " SELECT E.nombre_vacuna, E.fecha_primera_d, E.fecha_segunda_d, E.fecha_tercera_d
+				FROM vacunacion E
+				 JOIN estudiante D
+				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
+				$result = mysqli_query($this->link, $query);
+				$data   = array();
+  				while ($data[] = mysqli_fetch_assoc($result));
+  				array_pop($data);
+				return $data;
+					
+			}
+
 		}
 		
 		public function setEditEstudiante($data){
