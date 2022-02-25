@@ -102,7 +102,7 @@
 							<label class="col-form-label">MAESTRO RESPONSABLE</label>
 							<select name="maestro" class="form-control"> 
 								<?php foreach ($maestro as $column => $value) {?>
-								<option value="<?=$value['nombres'];?>"><?=$value['nombres']?></option>
+								<option value="<?=$value['nombres'] ." " .$value['apellidos'];?>"><?=$value['nombres'] ." " .$value['apellidos'];?></option>
 								<?php } ?>	
 							</select>
 						</div>

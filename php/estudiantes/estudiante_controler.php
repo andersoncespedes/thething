@@ -13,10 +13,10 @@
 
 	if (isset($_POST['editar'])) {
 		if ($estudiante->setEditEstudiante($_POST)) {
-			header('location: ../../perfil/estudiantes.php?e_maestro=1&id=' .$_POST['id_m']. '&success=true');
+			header('location: ../../perfil/estudiantes.php?e_maestro=1&success=true');
 		}
 		else{
-			header('location: ../../perfil/estudiantes.php?e_maestro=0&id=' .$_POST['id_m']. '&error=true');
+			header('location: ../../perfil/estudiantes.php?e_maestro=0&error=true');
 		}
 	}
 	if (isset($_POST['validar'])) {
