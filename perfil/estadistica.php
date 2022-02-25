@@ -9,6 +9,7 @@
 		$estadistica_estu = $estadistica->getUserEst();
 		$estadistica_estud = $estadistica->getUserEstud();
 		$estadistica_estudiante = $estadistica->getEstadisticaByEstudiante();
+		$estudiante_sexo = $estadistica->getEstudianteBySexo();
 
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
@@ -235,6 +236,35 @@
 			</div>
 			
 			</div>
+			<div class="wall-p" >
+					<div class="title-m">
+						<h2>ESTADISTICA DE GRADOS</h2>	
+						<hr class="stylerf">
+					</div>
+				<div style="width: 100%;display: flex; flex-wrap: wrap;">
+				<div style="width: 40%; margin: auto; text-align: right;">
+				<h3>Grados:</h3><br>
+							<?php 
+					if (count($estudiante_sexo)>0) {
+						foreach ($estudiante_sexo as $column => $value) {
+
+							?>
+							 
+						<?php echo $value['sexo']. ' = ' .$value['estud_sex'] .' (' .intval(($value['estud_sex']) * 100 / $i ). '%)'; ?><br>
+				<?php 
+		}
+		} 
+		?>
+				
+			</div>
+				<div style="width: 60%;">
+						<canvas id="chart-area"  style=""></canvas>	
+					</div>
+			
+			</div>
+			</div>
+			
+			</div>
 		</main>
 
 			<footer>
@@ -301,11 +331,28 @@
 		]
 
 	}
+	var doughnutData = [<?php 
+						$color = ["#F7464A","#46BFBD","#FDB45C","#949FB1","#4D5360"];
+						$i 	   = 0;
+					foreach ($estudiante_sexo as $column => $value) { ?>
+				{
+					
+					value: <?=$value['estud_sex']?>,
+					color: '<?=$color[$i]?>',
+					highlight: '<?=$color[$i]?>',
+					label: '<?=$value['sexo']?>',
+
+				
+					
+				},
+					<?php $i++; } ?>
+					
+			];
 	var barChartData1 = {
 		labels : [
 					<?php 
 
-					$color = ["#F7464A","#46BFBD","#FDB45C","#949FB1","#4D5360"];$b = 0;
+					$b = 0;
 						foreach ($estadistica_estudiante as $column => $value) { ?>
 					'<?php echo $value['grado'];?>',
 				<?php } ?>
@@ -386,8 +433,17 @@
 				window.myPie = new Chart(ctx1).Pie(pieData);
 				var ctx2 = document.getElementById("canvas2").getContext("2d");
 				window.myPie = new Chart(ctx2).Pie(pieData1);
+				var ctx9 = document.getElementById("chart-area").getContext("2d");
+				window.myDoughnut = new Chart(ctx9).Doughnut(doughnutData, {responsive : true});
 	}
+	
 
+				
+		
+
+
+
+	</script>
 	</script>
 
 </body>

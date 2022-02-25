@@ -26,7 +26,7 @@
 
 		public function newEstudiante($data)
 		{
-			$query  = "INSERT INTO estudiante(nombres, apellidos, cedula, grado, nacimiento) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['grado']."', '".$data['nacimiento']."')";
+			$query  = "INSERT INTO estudiante(nombres, apellidos, cedula, grado, nacimiento,sexo) VALUES('".$data['nombre']."','".$data['apellido']."', '".$data['cedula']."', '".$data['grado']."', '".$data['nacimiento']."', '".$data['sexo']."')";
 			$result = mysqli_query($this->link, $query);
 			if (mysqli_affected_rows($this->link) > 0){
 				return true;

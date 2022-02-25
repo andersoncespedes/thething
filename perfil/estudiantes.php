@@ -293,7 +293,21 @@
 								</select>
 							</div>
 							</div>
-			
+							<div class="col-md-12">
+							<div class="form-group">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sexo" id="flexRadioDefault1" value = "Masculino">
+  								<label class="form-check-label" for="flexRadioDefault1">
+   								MASCULINO
+  								</label>
+							</div>
+							<div class="form-check">
+  								<input class="form-check-input" type="radio" name="sexo" id="flexRadioDefault2" checked value="Femenino">
+								  <label class="form-check-label" for="flexRadioDefault2">
+   									FEMENINO
+  								</label>
+							</div>
+								</div></div>
 						
 							<input type="submit" name="crear" class="btn btn-info btn-block" value="Ingresar">
 							</form><br>
@@ -332,6 +346,7 @@
 								<th>CEDULA</th>
 								<th>GRADO</th>
 								<th>EDAD</th>
+								<th>SEXO</th>
 								<th>OPCION</th>
 
 							
@@ -348,7 +363,10 @@
 							<td><?php echo $value['apellidos'];?></td>
 							<td><?php echo $value['cedula'];?></td>
 							<td><?php echo $value['grado'];?></td>
+							
 							<td><?php echo (date('Y') - $value['nacimiento']);?> Años</td>
+							<td><?php echo $value['sexo'];?></td>
+
 
 						
 							

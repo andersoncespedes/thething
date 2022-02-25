@@ -117,6 +117,16 @@
 			array_pop($data);
 			return $data;	
 		}
+		public function getEstudianteBySexo()
+		{
+			$query  = "SELECT SUM(est_estud) AS estud_sex, sexo FROM estudiante GROUP BY sexo";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			rsort($data);
+			array_pop($data);
+			return $data;	
+		}
 		public function getEstadisticaByEstudiante()
 		{
 			$query  = "SELECT SUM(est_estud) AS num_est, grado FROM estudiante GROUP BY grado";
