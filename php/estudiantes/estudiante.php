@@ -130,6 +130,19 @@
 					return false;
 				}
 			}
+			public function deleteEstudianteVac($id){
+			
+				$query = "DELETE vacunacion
+				FROM vacunacion
+				WHERE id_estudiante =" .$id;
+				$result = mysqli_query($this->link, $query);
+				if (mysqli_affected_rows($this->link)>0) {
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
 		
 		
 		public function validarUser($data){

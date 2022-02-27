@@ -454,11 +454,11 @@
 					$i++;
 				?>
 						<tr class="elsegundo" style="text-align: center;">
-							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombre_vacuna'];?></a></td>
+							<td><?php echo $value['nombre_vacuna'];?></td>
 							<td><?php echo $value['fecha_primera_d'];?></td>
 							<td><?php echo $value['fecha_segunda_d'];?></td>
 							<td><?php echo $value['fecha_tercera_d'];?></td>		
-							<td><a href="../php/estudiantes/estudiante_controler.php?delete" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/estudiantes/estudiante_controler.php?delete_v?id=<?=$value['id_estudiante'];?>" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>
