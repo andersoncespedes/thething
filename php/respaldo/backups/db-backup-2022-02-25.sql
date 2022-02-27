@@ -13,12 +13,12 @@ CREATE TABLE `actividad` (
   PRIMARY KEY (`id_actividad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
-INSERT INTO actividad VALUES("90"," PARRANDON Navide√±o Institucional","REALIZADA","Hoy Uee San Jose de las Moreas se visti√≥ de gala y alegr√≠a para dar la bienvenida a la navidad en nuestra instituci√≥n educativa con un PARRANDON Navide√±o Institucional donde participaron todos los grados mostrando excelentes representaciones navide√±as y resaltando que el mes de diciembre es el mes m√°s bonito del a√±o porque se festeja la llegada de nuestro ni√±o Jes√∫s","2021-11-29","imagen/","93402102","Kira  Villalba","22");
-INSERT INTO actividad VALUES("91","Juramentaci√≥n del Alcalde ","REALIZADA","Presentes en la Juramentaci√≥n del Alcalde Mayor Sergio Hern√°ndez con nuestras autoridades Directora de educaci√≥n del Estado Bol√≠var Yaneri Flores , Martha Nacul Sub Directora de Educaci√≥n , Maricela Abreu Jefa del departamentos de. Personal de Secretaria de Educaci√≥n acompa√±ando a nuestra querida Diputada Prof.Brizeida Qui√±ones","2021-12-03","imagen/264287783_1295316124263251_4982077867927701661_n.jpg","383006986","Kira  Villalba","14");
-INSERT INTO actividad VALUES("92","d√≠a del Maestro","REALIZADA","Actividades del d√≠a de hoy 13/01/2022. Tanto pedag√≥gicas como culturales en el marco del d√≠a del Maestro","2022-01-13","imagen/271785385_1320845345043662_5030459631844811040_n.jpg","86587335","Venus  Grimon","11");
-INSERT INTO actividad VALUES("93","Visita del personal de INPARQUES","REALIZADA","charla de primeros auxilios (bomberitos por un d√≠a) y charla sobre el cuidando del medio ambiente y nuestra madre tierra","2022-01-28","imagen/272736044_1330417507419779_5330284217451438308_n.jpg","227792063","Kira  Villalba","18");
-INSERT INTO actividad VALUES("94","d√≠a del educador","REALIZADA","Uee San Jose de las Moreas presente en la caminata del d√≠a del educador","2022-01-28","imagen/272815281_1330417774086419_1842909103929383292_n.jpg","610479934","Kira  Villalba","10");
-INSERT INTO actividad VALUES("95","Elaboraci√≥n de marionetas","REALIZADA","Elaboraci√≥n de marionetas sobre los h√©roes de la salud profesora Venus Grimon y Marlon Guevara 2 y 4 grado se educaci√≥n b√°sica","2022-02-02","imagen/272856888_1332617110533152_1731728556242457801_n.jpg","648580603","Liseth  Bolivar","7");
+INSERT INTO actividad VALUES("90"," PARRANDON NavideÒo Institucional","REALIZADA","Hoy Uee San Jose de las Moreas se vistiÛ de gala y alegrÌa para dar la bienvenida a la navidad en nuestra instituciÛn educativa con un PARRANDON NavideÒo Institucional donde participaron todos los grados mostrando excelentes representaciones navideÒas y resaltando que el mes de diciembre es el mes m·s bonito del aÒo porque se festeja la llegada de nuestro niÒo Jes˙s","2021-11-29","imagen/","93402102","Kira  Villalba","22");
+INSERT INTO actividad VALUES("91","JuramentaciÛn del Alcalde ","REALIZADA","Presentes en la JuramentaciÛn del Alcalde Mayor Sergio Hern·ndez con nuestras autoridades Directora de educaciÛn del Estado BolÌvar Yaneri Flores , Martha Nacul Sub Directora de EducaciÛn , Maricela Abreu Jefa del departamentos de. Personal de Secretaria de EducaciÛn acompaÒando a nuestra querida Diputada Prof.Brizeida QuiÒones","2021-12-03","imagen/264287783_1295316124263251_4982077867927701661_n.jpg","383006986","Kira  Villalba","14");
+INSERT INTO actividad VALUES("92","dÌa del Maestro","REALIZADA","Actividades del dÌa de hoy 13/01/2022. Tanto pedagÛgicas como culturales en el marco del dÌa del Maestro","2022-01-13","imagen/271785385_1320845345043662_5030459631844811040_n.jpg","86587335","Venus  Grimon","11");
+INSERT INTO actividad VALUES("93","Visita del personal de INPARQUES","REALIZADA","charla de primeros auxilios (bomberitos por un dÌa) y charla sobre el cuidando del medio ambiente y nuestra madre tierra","2022-01-28","imagen/272736044_1330417507419779_5330284217451438308_n.jpg","227792063","Kira  Villalba","18");
+INSERT INTO actividad VALUES("94","dÌa del educador","REALIZADA","Uee San Jose de las Moreas presente en la caminata del dÌa del educador","2022-01-28","imagen/272815281_1330417774086419_1842909103929383292_n.jpg","610479934","Kira  Villalba","10");
+INSERT INTO actividad VALUES("95","Elaboracion de marionetas","REALIZADA","Elaboracion de marionetas sobre los heroes de la salud profesora Venus Grimon y Marlon Guevara 2 y 4 grado se educacion bisica","2022-02-02","imagen/272856888_1332617110533152_1731728556242457801_n.jpg","648580603","Kira  Villalba","7");
 INSERT INTO actividad VALUES("96","Regreso a clases presenciales","REALIZADA","regleso a clases despues del ciclo epidimiologico por causa del covid 19","2022-02-21","imagen/273973193_1345142395947290_282746393224633599_n.jpg","25342515","Neyslen  Jimenez","10");
 
 
@@ -37,12 +37,12 @@ CREATE TABLE `estadistica` (
   PRIMARY KEY (`id_estadistica`)
 ) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
 
-INSERT INTO estadistica VALUES("87","REALIZADA","2021-11-29","1"," PARRANDON Navide√±o Institucional","93402102","Kira  Villalba","22");
-INSERT INTO estadistica VALUES("88","REALIZADA","2021-12-03","1","Juramentaci√≥n del Alcalde ","383006986","Kira  Villalba","14");
-INSERT INTO estadistica VALUES("89","REALIZADA","2022-01-13","1","d√≠a del Maestro","86587335","Venus  Grimon","11");
+INSERT INTO estadistica VALUES("87","REALIZADA","2021-11-29","1"," PARRANDON NavideÒo Institucional","93402102","Kira  Villalba","22");
+INSERT INTO estadistica VALUES("88","REALIZADA","2021-12-03","1","JuramentaciÛn del Alcalde ","383006986","Kira  Villalba","14");
+INSERT INTO estadistica VALUES("89","REALIZADA","2022-01-13","1","dÌa del Maestro","86587335","Venus  Grimon","11");
 INSERT INTO estadistica VALUES("90","REALIZADA","2022-01-28","1","Visita del personal de INPARQUES","227792063","Kira  Villalba","18");
-INSERT INTO estadistica VALUES("91","REALIZADA","2022-01-28","1","d√≠a del educador","610479934","Kira  Villalba","10");
-INSERT INTO estadistica VALUES("92","REALIZADA","2022-02-02","1","Elaboraci√≥n de marionetas","648580603","Liseth  Bolivar","7");
+INSERT INTO estadistica VALUES("91","REALIZADA","2022-01-28","1","dÌa del educador","610479934","Kira  Villalba","10");
+INSERT INTO estadistica VALUES("92","REALIZADA","2022-02-02","1","Elaboracion de marionetas","648580603","Kira  Villalba","7");
 INSERT INTO estadistica VALUES("93","REALIZADA","2022-02-21","1","Regreso a clases presenciales","25342515","Neyslen  Jimenez","10");
 
 
@@ -57,16 +57,18 @@ CREATE TABLE `estudiante` (
   `grado` varchar(100) NOT NULL,
   `nacimiento` int(100) NOT NULL,
   `est_estud` int(100) NOT NULL DEFAULT '1',
+  `sexo` varchar(50) NOT NULL,
   PRIMARY KEY (`id_estudiante`),
   UNIQUE KEY `cedula` (`cedula`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
-INSERT INTO estudiante VALUES("16","Jhoan ","Riverol","256667835","6to Grado Seccion A","2022","1");
-INSERT INTO estudiante VALUES("17","cesar","saul","124927983","2do Grado Seccion A","2015","1");
-INSERT INTO estudiante VALUES("18","anderson","Guerrero","156232781","4to Grado Seccion A","2014","1");
-INSERT INTO estudiante VALUES("19","Ciro","Carmona","172675172","1er Grado Seccion A","2016","1");
-INSERT INTO estudiante VALUES("20","Raul","Salazzar","145689785","5to Grado Seccion A","2012","1");
-INSERT INTO estudiante VALUES("21","Juan","Morales","145698798","1er Grado Seccion A","2015","1");
+INSERT INTO estudiante VALUES("16","Jhoan ","Riverol","256667835","6to Grado Seccion A","2022","1","Masculino");
+INSERT INTO estudiante VALUES("17","cesar","saul","124927983","2do Grado Seccion A","2015","1","Masculino");
+INSERT INTO estudiante VALUES("18","anderson","Guerrero","156232781","4to Grado Seccion A","2014","1","Masculino");
+INSERT INTO estudiante VALUES("19","Ciro","Carmona","172675172","1er Grado Seccion A","2016","1","Masculino");
+INSERT INTO estudiante VALUES("20","Raul","Salazzar","145689785","5to Grado Seccion A","2012","1","Masculino");
+INSERT INTO estudiante VALUES("21","Juan","Morales","145698798","1er Grado Seccion A","2015","1","Masculino");
+INSERT INTO estudiante VALUES("22","Angela ","Joselin","252645789","1er Grado Seccion A","2016","1","Femenino");
 
 
 
@@ -82,7 +84,7 @@ CREATE TABLE `grado` (
 
 INSERT INTO grado VALUES("8","2do Grado","Seccion A","Liseth  Bolivar");
 INSERT INTO grado VALUES("9","1er Grado","Seccion A","Kira  Villalba");
-INSERT INTO grado VALUES("10","3er Grado","Seccion A","Brizeida  Qui√±ones");
+INSERT INTO grado VALUES("10","3er Grado","Seccion A","Brizeida  QuiÒones");
 INSERT INTO grado VALUES("11","4to Grado","Seccion A","Venus  Grimon");
 INSERT INTO grado VALUES("12","5to Grado","Seccion A","Neyslen  Jimenez");
 INSERT INTO grado VALUES("13","6to Grado","Seccion A","Marlon  Guevara");
@@ -102,13 +104,13 @@ CREATE TABLE `maestro` (
   `servicio` int(100) NOT NULL,
   PRIMARY KEY (`id_maestro`),
   UNIQUE KEY `cedula` (`cedula`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 INSERT INTO maestro VALUES("18","Liseth ","Bolivar","14568976","liz123@gmail.com","1986-06-24","Urbanizacion san jose de las moreas calle Simon Bolivar","2003");
-INSERT INTO maestro VALUES("19","Marlon ","Guevara","16225654","ejemplo@gmail.com","2002-06-25","urbanizaci√≥n San Jose De las Moreas calle principal","2004");
+INSERT INTO maestro VALUES("19","Marlon ","Guevara","16225654","ejemplo@gmail.com","2002-06-25","urbanizaciÛn San Jose De las Moreas calle principal","2004");
 INSERT INTO maestro VALUES("20","Neyslen ","Jimenez","15625478","nessui12@gmail.com","1984-10-25","Urbanizacion San Jose de las Moreas Calle Gonzalo Barrios","2003");
-INSERT INTO maestro VALUES("21","Venus ","Grimon","12492798","venus_G1254@gmail.com","1981-08-10","Urbanizaci√≥n San Jose de las Moreas Calle Penalver","2003");
-INSERT INTO maestro VALUES("22","Brizeida ","Qui√±ones","17267517","brizz_qui11@gmail.com","1986-07-04","Urbanizacion San Jose de las Moreas calle Simon Bolivar","2003");
+INSERT INTO maestro VALUES("21","Venus ","Grimon","12492798","venus_G1254@gmail.com","1981-08-10","UrbanizaciÛn San Jose de las Moreas Calle Penalver","2003");
+INSERT INTO maestro VALUES("22","Brizeida ","QuiÒones","17267517","brizz_qui11@gmail.com","1986-07-04","Urbanizacion San Jose de las Moreas calle Simon Bolivar","2003");
 INSERT INTO maestro VALUES("24","Kira ","Villalba","12654321","kirra44@gmail.com","1980-01-01","Urbanizacion San Jose de las Moreas Calle Central","2000");
 
 
@@ -125,7 +127,7 @@ CREATE TABLE `participante` (
   KEY `id_estudiante` (`id_estudiante`),
   CONSTRAINT `participante_ibfk_1` FOREIGN KEY (`id_actividad`) REFERENCES `actividad` (`id_actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `participante_ibfk_2` FOREIGN KEY (`id_estudiante`) REFERENCES `estudiante` (`id_estudiante`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=153 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8;
 
 INSERT INTO participante VALUES("97","21","90","");
 INSERT INTO participante VALUES("98","20","90","");
