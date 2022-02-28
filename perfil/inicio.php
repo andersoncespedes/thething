@@ -2,9 +2,9 @@
 		include "../php/actividades/actividad.php";
 	
 		$actividad = new actividad();
-		$act1 = new actividad();
-		
-		$act = $act1->getAct();
+		$act = new actividad();
+		$act = $act->getAct();
+
 		
 		if (isset($_POST['buscar'])) {
 			$busqueda = $_POST['buscar'];
@@ -20,7 +20,7 @@
 	?>
 
 	<?php
-		
+	
 		session_start();
 		if ($_SESSION['usuario'] == null || $_SESSION['usuario'] == ' ') {
 			header('location: ../index.php');
@@ -46,10 +46,6 @@
 		<link rel="shortcut icon" href="img/madara-eternal.ico">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<style type="text/css">
-			a{
-				text-decoration:none;
-				color:black;
-			}
 			.date-p{
 				float: right;
 				font-size: 15px;
@@ -80,6 +76,10 @@
 			}
 			.wall-p img{
 				border-radius: 20px;
+			}
+			a{
+				text-decoration:none;
+				color:black;
 			}
 		</style>
 	</head>
@@ -124,7 +124,7 @@
 					<span class="tag-p3" ><?=$value['tipo'];?></span> 
 					<?php } ?>
 					<div class="wall-t">
-				
+
 						<h2><?php echo $value['nombre'];?></h2>
 					</div>
 					<div style="max-width: 100%; text-align: justify;">
@@ -147,14 +147,17 @@
 				</div>
 				<?php } ?>
 			</div>
-						
 				</div><span class = "r" style="display: none;">3</span>
+						</a>
 			<?php 
 		}
 		} 
 
-			?></a>
+			?>
+			
 			<div style="margin-top: 10px; display: flex; width: 100%;">
+				
+			
 			<?php if (isset($_GET['pag'])) {
 			
 				if ($begin - $tamaño >= 0 ) {?>
@@ -164,11 +167,13 @@
 			 <?php } } ?>
 			</div>
 			</div>
+
 			<div style="width: 40%;" class="raro">
 			<div class="wall-s">
 				<div class="title-m">
 					<h2>MENU</h2>
 				</div>
+				
 					<ul>
 						<li><a href=""><span class ="icon-image"></span> ACTIVIDADES</a></li>
 						<li><a href="estadistica.php?pag=1"> <span class = "icon-chart-pie"></span>ESTADISTICA</a></li>
@@ -194,8 +199,7 @@
 			</div>
 		</main>
 
-		
-		<footer>
+			<footer>
 				<div class="separador">
 					<div class="principal">
 						<h4>REDES SOCIALES:</h4>

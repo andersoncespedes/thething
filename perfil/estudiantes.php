@@ -384,12 +384,15 @@
 
 					</table>
 				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Estudiante</a>
+				<a href="informe.php" class="btn btn-danger"  style="display: inline-block; " ><span class="icon-user-plus"></span> PDF</a></span>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$estudiant[0]['nombres'] ." " .$estudiant[0]['apellidos']?>:
 					
-				<a href="#ventana" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Editar</a></span>
+				<a href="#ventana" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Editar</a></span>
 				<a href="#ventana5" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Representante</a></span>
 				<a href="#ventana6" class="btn btn-warning" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Vacunacion</a></span>
+				
+
 				<?php } ?>
 			</div>
 

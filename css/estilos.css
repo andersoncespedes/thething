@@ -24,7 +24,7 @@
 
 }
 body{
-font-family: estilo;
+font-family:showcase;
 	display: flex;
 	flex-wrap: wrap;
 	min-height: 100vh;background: rgba(0,0,0,0.2);

@@ -238,12 +238,12 @@
 			</div>
 			<div class="wall-p" >
 					<div class="title-m">
-						<h2>ESTADISTICA DE GRADOS</h2>	
+						<h2>ESTADISTICA DE SEXOS</h2>	
 						<hr class="stylerf">
 					</div>
 				<div style="width: 100%;display: flex; flex-wrap: wrap;">
 				<div style="width: 40%; margin: auto; text-align: right;">
-				<h3>Grados:</h3><br>
+				<h3>Sexo:</h3><br>
 							<?php 
 					if (count($estudiante_sexo)>0) {
 						foreach ($estudiante_sexo as $column => $value) {
