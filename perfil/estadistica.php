@@ -10,7 +10,7 @@
 		$estadistica_estud = $estadistica->getUserEstud();
 		$estadistica_estudiante = $estadistica->getEstadisticaByEstudiante();
 		$estudiante_sexo = $estadistica->getEstudianteBySexo();
-
+		$studiannim = $estadistica->getEstudNum();
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$estadistica_integ = $estadistica->getEstadisticaByInteg($tamaño, $begin);
@@ -250,7 +250,7 @@
 
 							?>
 							 
-						<?php echo $value['sexo']. ' = ' .$value['estud_sex'] .' (' .intval(($value['estud_sex']) * 100 / $i ). '%)'; ?><br>
+						<?php echo $value['sexo']. ' = ' .$value['estud_sex'] .' (' .intval(($value['estud_sex']) * 100 / $studiannim). '%)'; ?><br>
 				<?php 
 		}
 		} 

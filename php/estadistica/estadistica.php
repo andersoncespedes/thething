@@ -80,6 +80,14 @@
 			return $men;
 
 		}
+		public function getEstudNum()
+		{
+			$query  = "SELECT * FROM estudiante";
+			$result = mysqli_query($this->link, $query);
+			$data   = mysqli_affected_rows($this->link); 
+			return $data;
+
+		}
 			public function getEstadisticaByN()
 		{
 			$query  = "SELECT * FROM estadistica";

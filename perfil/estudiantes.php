@@ -295,6 +295,7 @@
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
+								<label>SEXO </label>
 							<div class="form-check">
 								<input class="form-check-input" type="radio" name="sexo" id="flexRadioDefault1" value = "Masculino">
   								<label class="form-check-label" for="flexRadioDefault1">
