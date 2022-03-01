@@ -62,7 +62,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.nombres, E.apellidos,E.cedula, E.grado, E.nacimiento,D.id_representante, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
+				$query  = " SELECT  E.id_estudiante, E.nombres, E.apellidos,E.cedula, E.grado, E.nacimiento,D.id_representante, D.nombre_rep, D.apellido_rep,D.cedula_rep, D.correo_rep, D.telefono_rep, D.direccion_rep
 				FROM estudiante E
 				 JOIN representante D
 				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
@@ -91,7 +91,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.nombre_vacuna, E.fecha_primera_d, E.fecha_segunda_d, E.fecha_tercera_d
+				$query  = " SELECT E.id_estudiante, E.nombre_vacuna, E.fecha_primera_d, E.fecha_segunda_d, E.fecha_tercera_d
 				FROM vacunacion E
 				 JOIN estudiante D
 				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;
@@ -134,6 +134,19 @@
 			
 				$query = "DELETE vacunacion
 				FROM vacunacion
+				WHERE id_estudiante =" .$id;
+				$result = mysqli_query($this->link, $query);
+				if (mysqli_affected_rows($this->link)>0) {
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			public function deleteEstudianteRep($id){
+			
+				$query = "DELETE representante
+				FROM representante
 				WHERE id_estudiante =" .$id;
 				$result = mysqli_query($this->link, $query);
 				if (mysqli_affected_rows($this->link)>0) {

@@ -45,5 +45,21 @@
 			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. '&success=false');
 		}
 	}
+	if (isset($_GET['delete_v'])) {
+		if ($estudiante->deleteEstudianteVac($_GET['id'])) {
+			header('location: ../../perfil/estudiantes.php?d_maestro=1&id_d=' .$_GET['id']. '&success=true');
+		}
+		else{
+			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. '&success=false');
+		}
+	}
+	if (isset($_GET['delete_rep'])) {
+		if ($estudiante->deleteEstudianteRep($_GET['id'])) {
+			header('location: ../../perfil/estudiantes.php?d_maestro=1&id_d=' .$_GET['id']. '&success=true');
+		}
+		else{
+			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. '&success=false');
+		}
+	}
 
 ?>

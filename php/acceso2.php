@@ -23,7 +23,7 @@
 				<ul>
 					<li class="r"><h3 style="color: red;">APPLE<span style="color:steelblue;"> JHIN</span></h3></li>
 					<li class="r"><a href="../perfil/inicio.php?pag=1" class="s">INICIO</a></li>
-					<li class="r"><a href="#page-4" class="s">INSTITUCION</a></li>
+					<li class="r"><a href="../perfil/info.php" class="s">INSTITUCION</a></li>
 					<li class="r"><a href="#page-2" class="s">ACERCA DE</a></li>
 					<li style="float: right;" class="drop-main r" ><a href="" class="s">Bienvenido <?=$_SESSION['usuario'];?></a>
 					<div class="drop">

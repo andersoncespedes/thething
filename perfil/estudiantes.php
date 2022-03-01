@@ -433,7 +433,7 @@
 							
 							<td><?php echo $value['telefono_rep'];?></td>
 							
-							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_maestro'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_estudiante'];?>&delete_rep" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>
@@ -480,7 +480,7 @@
 							<td><?php echo $value['fecha_primera_d'];?></td>
 							<td><?php echo $value['fecha_segunda_d'];?></td>
 							<td><?php echo $value['fecha_tercera_d'];?></td>		
-							<td><a href="../php/estudiantes/estudiante_controler.php?delete_v?id=<?=$value['id_estudiante'];?>" class="btn btn-warning">ELIMINAR</a></td>
+							<td><a href="../php/estudiantes/estudiante_controler.php?delete_v&id=<?=$value['id_estudiante'];?>" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
 						} if($i == 0){?>

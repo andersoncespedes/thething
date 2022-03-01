@@ -29,11 +29,11 @@
 	}
 
 	if (isset($_GET['delete'])) {
-		if ($representante->deleteRepresentante($_GET['id'])) {
-			header('location: ../../perfil/estudiantes.php?d_maestro=1&id_d=' .$_GET['id']. 'success=true');
+		if ($maestro->deleteMaestro($_GET['id'])) {
+			header('location: ../../perfil/maestros.php?d_maestro=1&id_d=' .$_GET['id']. 'success=true');
 		}
 		else{
-			header('location: ../../perfil/estudiantes.php?d_maestro=0&id_d=' .$_GET['id']. 'success=true');
+			header('location: ../../perfil/maestros.php?d_maestro=0&id_d=' .$_GET['id']. 'success=true');
 		}
 	}
 
