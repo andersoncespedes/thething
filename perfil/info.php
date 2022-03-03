@@ -15,7 +15,6 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	</head>
 	<div class="loader hidden">
-			<img src="img/escuela-y-colegio-imagen-animada-0047.gif">
 			Please Wait...
 		</div>
 	<body>

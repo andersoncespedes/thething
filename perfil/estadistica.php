@@ -74,7 +74,6 @@
 	</head>
 	
 	<div class="loader hidden">
-	
 			Please Wait...
 		</div>
 	<body style="background-color: rgba(0,0,0,0.2);">
