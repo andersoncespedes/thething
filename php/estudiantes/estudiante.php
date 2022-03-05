@@ -116,6 +116,17 @@
 				}
 			
 		}
+		public function setEditRepresentante($data){
+		
+			$query  = "UPDATE representante SET nombre_rep = '".$data['nombre']."', apellido_rep = '".$data['apellido']."', cedula_rep = '".$data['cedula']."', correo_rep = '".$data['correo']."', telefono_rep = '".$data['telefono']."' WHERE id_representante =" .$data['id_m'];
+			$result = mysqli_query($this->link, $query);
+			if ($result) {
+				return true;
+			}else{
+				return false;
+			}
+		
+	}
 		
 		public function deleteEstudiante($id){
 			
