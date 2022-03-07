@@ -12,6 +12,14 @@ $estudiante = $estudiantes->getEstudiante();
 		<meta name= "author" content="">
 		 
 		<style>
+     
+       ul{
+
+       }
+              li{
+                display: inline-block;
+    
+            }
             th{
                 background:red;
                 padding:10px;
@@ -19,7 +27,7 @@ $estudiante = $estudiantes->getEstudiante();
             }
             .tittle-m{
                 width:100%;
-                text-align:center;
+                display:block;
             }
 
             .table{
@@ -31,15 +39,15 @@ $estudiante = $estudiantes->getEstudiante();
                 padding: 10px;
      
             }
+            td{
+
+                padding: 10px;
+     
+            }
             header {
-                display:inline-block;
                 width:100%;
                margin:0;
                padding:0;
-             
-            }
-            header img {
-              width:100%;
              
             }
             footer {
@@ -48,9 +56,6 @@ $estudiante = $estudiantes->getEstudiante();
                 left: 0cm; 
                 right: 0cm;
                 height: 2cm;
-
-
-
                 text-align: center;
 
             }
@@ -59,23 +64,24 @@ $estudiante = $estudiantes->getEstudiante();
     </head>
     <body>
         <header>
-            <div style = "width:30%;">
-            <img src = "http://<?php echo $_SERVER['HTTP_HOST'];?>/TheThing/img/descarga.png" >
-        </div>
-        
-      
+        <ul>
+            <li>
+            <img src = "http://<?php echo $_SERVER['HTTP_HOST'];?>/TheThing/img/images.png" >
+        </li>
+        <li >
+            <img src = "http://<?php echo $_SERVER['HTTP_HOST'];?>/TheThing/img/descarga.png" >    
+        </li>
+        </ul>    
         </header>
-    <main class="container" style="width:100%;">
-    
-   
-<div class="wall-p">
-        <div class="title-m" >
-        
-        <center><h2>REPORTE DE ESTUDIANTES REGISTRADOS EN EL SISTEMA</h2></center>	
+    <main class="container" style="width:100%; margin-top:20px;">
+ <div class="title-m" >   
+      <h2>REPORTE DE ESTUDIANTES REGISTRADOS EN EL SISTEMA</h2>
     <hr class="stylerf">
 </div>
+    <div class="wall-p">
+    
 
-                    <table class="table">
+                    <table class="table">   
                 <tr class="bg">
                     <th>ID</th>
                     <th>NOMBRE</th>
@@ -118,7 +124,7 @@ $estudiante = $estudiantes->getEstudiante();
         </table>
             </div>
             <footer>
-            Copyright &copy;Anderson Cespedes <?php echo date("Y");?> 
+            Fecha: <?php echo date("d/ m/ Y");?> 
         </footer>
         </body>
 </html>

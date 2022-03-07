@@ -159,7 +159,7 @@
 								<div class="col-md-12">
 							<div class="form-group">
 								<label>Imagen</label>
-								<input type="file" name="imagen" class="form-control" required>
+								<input type="file" name="imagen" class="form-control" >
 							</div>
 							</div>
 						
