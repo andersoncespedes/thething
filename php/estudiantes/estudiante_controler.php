@@ -19,6 +19,15 @@
 			header('location: ../../perfil/estudiantes.php?e_maestro=0&error=true');
 		}
 	}
+	if (isset($_POST['editar_rep'])) {
+		echo 22;
+		if ($estudiante->setEditRepresentante($_POST)) {
+			header('location: ../../perfil/estudiantes.php?e_maestro=1&success=true');
+		}
+		else{
+			header('location: ../../perfil/estudiantes.php?e_maestro=0&error=true');
+		}
+	}
 	if (isset($_POST['validar'])) {
 		if ($users->validarUser($_POST)) {
 			header('location: ../../perfil/maestros.php?id=' .$_GET['id']. 'success=true');

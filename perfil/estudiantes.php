@@ -10,6 +10,7 @@
 			$vacuna = $estudiantes->getVacunaById($_GET['id']);
 			$estudiant = $estudiantes->getEstudianteById($_GET['id']);
 		}
+	
 		
 
 	?>
@@ -132,7 +133,64 @@
 			</div>
 		</div>
 		</div>
+		<div class="modal fade" id="ventana9">
+		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
+		<div class="col-md-5" style="margin: auto;">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						
+						<h3 class="modal-title">INGRESE LOS SIGUIENTES DATOS</h3>
+						
+						
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<form action="../php/estudiantes/estudiante_controler.php" method="POST" id="registro2" name ="registro2">
+							<div class="col-md-12">
+								<div class="form-group">
+								<label> Nombre</label>
+								<input type="text" name="nombre" maxlength = "20" id="nombre" class="form-control" placeholder="Nombre" value="<?=$estudiant[0]['nombre_rep']?>" style="color: black !important;" required>
+					
+								<input type="text" name="id_m" class="form-control" placeholder="Nombre" value="<?=$_GET['idl']?>" style="display: none;" >
+							
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Apellido</label>
+								<input type="text" name="apellido" maxlength = "20" id="apellido" class="form-control" placeholder="Apellido" value="<?=$estudiant[0]['apellido_rep']?>" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Cedula</label>
+								<input type="text" name="cedula" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" value="<?=$estudiant[0]['cedula_rep']?>" style="color: black !important;" required>
+							</div>
+							</div>
+					
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Correo</label>
+								<input type="email" name="correo" id="servicio" class="form-control" placeholder="1990" value="<?=$estudiant[0]['correo_rep']?>" style="color: black !important;" required>
+							</div>
+							</div>
+							<div class="col-md-12">
+							<div class="form-group">
+								<label>Telefono </label>
+								<input type="number" name="telefono" id="servicio" class="form-control" placeholder="0412-" value="<?=$estudiant[0]['telefono_rep']?>" style="color: black !important;" required>
+							</div>
+							</div>
+							<input type="submit" name="editar_rep" class="btn btn-info btn-block" value="Ingresar">
+							</form>
 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
 	<div class="modal fade" id="ventana">
 		<button class="close" data-dismiss = "modal" aria-hidden="true">&times;</button>
 		<div class="col-md-5" style="margin: auto;">
@@ -324,12 +382,7 @@
 			Please Wait...
 		</div>
 	<body style="background-color: rgba(0,0,0,0.2);">
-			
-
-
-
-	<?php include "../php/acceso2.php"; ?>
-			
+	<?php include "../php/acceso2.php"; ?>		
 		</header>
 		<main class="container" style="display: flex; background-color: rgba(0,0,0,0); flex-wrap:wrap;">
 
@@ -348,11 +401,7 @@
 								<th>GRADO</th>
 								<th>EDAD</th>
 								<th>SEXO</th>
-								<th>OPCION</th>
-
-							
-
-										
+								<th>OPCION</th>						
 							</tr>
 								<?php  $i = 0;
 					if (count($estudiante)>0) {
@@ -366,12 +415,7 @@
 							<td><?php echo $value['grado'];?></td>
 							
 							<td><?php echo (date('Y') - $value['nacimiento']);?> Años</td>
-							<td><?php echo $value['sexo'];?></td>
-
-
-						
-							
-				
+							<td><?php echo $value['sexo'];?></td>	
 							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_estudiante'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
@@ -382,7 +426,6 @@
 							
 								<?php }  ?>
 				</tr>
-
 					</table>
 				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Estudiante</a>
 				<a href="informe.php" class="btn btn-danger"  style="display: inline-block; " ><span class="icon-user-plus"></span> PDF</a></span>
@@ -392,8 +435,6 @@
 				<a href="#ventana" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Editar</a></span>
 				<a href="#ventana5" class="btn btn-danger" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Representante</a></span>
 				<a href="#ventana6" class="btn btn-warning" data-toggle="modal" style="display: inline-block; " ><span class="icon-user-plus"></span> Agregar Vacunacion</a></span>
-				
-
 				<?php } ?>
 			</div>
 
@@ -426,13 +467,11 @@
 					$i++;
 				?>
 						<tr class="elsegundo" style="text-align: center;">
-							<td><a href="?id=<?=$value['id_estudiante'];?>"><?php echo $value['nombre_rep'];?></a></td>
+							<td><a href="?id=<?=$value['id_estudiante'];?>&idl=<?=$value['id_representante']?>"><?php echo $value['nombre_rep'];?></a></td>
 							<td><?php echo $value['apellido_rep'];?></td>
 							<td><?php echo $value['cedula_rep'];?></td>
-							<td><?php echo $value['correo_rep'];?></td>
-							
-							<td><?php echo $value['telefono_rep'];?></td>
-							
+							<td><?php echo $value['correo_rep'];?></td>						
+							<td><?php echo $value['telefono_rep'];?></td>				
 							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_estudiante'];?>&delete_rep" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>
 					<?php }
@@ -445,7 +484,12 @@
 				</tr>
 
 					</table>
-			
+					<?php if (isset($_GET['idl'])) { ?>
+					<span style="float: right;"><?=$estudiant[0]['nombre_rep'] ." " .$estudiant[0]['apellido_rep']?>:
+					
+				<a href="#ventana9" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Editar</a></span>
+				<?php } ?>
+			</div>
 				<?php } ?>
 			</div>
 			<?php if (isset($_GET['id']) && isset($vacuna[0]['nombre_vacuna'])) { ?>
@@ -462,13 +506,7 @@
 								<th>PRIMERA DOSIS</th>
 								<th>SEGUNDA DOSIS</th>
 								<th>TERCERA DOSIS</th>
-							
-
-								<th>OPCION</th>
-
-							
-
-										
+								<th>OPCION</th>				
 							</tr>
 								<?php  $i = 0;
 					if (count($vacuna)>0) {
