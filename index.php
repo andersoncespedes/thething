@@ -50,9 +50,7 @@
 		</div>
 
 	<main style="width: 100%;">
-		<div class="back">
-			<a href="index.php"><<</a>
-		</div>
+	
 		<dir class="login">
 			<div class="login-container">
 				<div class="login-main">

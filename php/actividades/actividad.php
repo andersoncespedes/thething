@@ -25,7 +25,6 @@
 			$data   = array();	
 			while ($data[] = mysqli_fetch_assoc($result));
 			array_pop($data);
-			
 			return $data;
 		}
 		public function getActividad()

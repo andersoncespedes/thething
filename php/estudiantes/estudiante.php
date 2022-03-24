@@ -36,7 +36,7 @@
 		}
 		public function newVacuna($data)
 		{
-			$query  = "INSERT INTO vacunacion(nombre_vacuna, fecha_primera_d, fecha_segunda_d, fecha_tercera_d, id_estudiante) VALUES('".$data['nombre_vacuna']."','".$data['primera_dosis']."', '".$data['segunda_dosis']."', '".$data['tercera_dosis']."', '".$data['id']."')";
+			$query  = "INSERT INTO vacunacion(nombre_vacuna, fecha_primera_d,nombre_vacuna2, fecha_segunda_d,nombre_vacuna3, fecha_tercera_d, id_estudiante) VALUES('".$data['nombre_vacuna']."','".$data['primera_dosis']."','".$data['nombre_vacuna2']."', '".$data['segunda_dosis']."', '".$data['nombre_vacuna3']."','".$data['tercera_dosis']."', '".$data['id']."') ";
 			$result = mysqli_query($this->link, $query);
 			if (mysqli_affected_rows($this->link) > 0){
 				return true;
@@ -91,7 +91,7 @@
 		{
 		if (!empty($id)) 
 			{
-				$query  = " SELECT E.id_estudiante, E.nombre_vacuna, E.fecha_primera_d, E.fecha_segunda_d, E.fecha_tercera_d
+				$query  = " SELECT E.id_estudiante, E.nombre_vacuna,  E.fecha_primera_d,E.nombre_vacuna2, E.fecha_segunda_d,E.nombre_vacuna3, E.fecha_tercera_d
 				FROM vacunacion E
 				 JOIN estudiante D
 				ON E.id_estudiante = D.id_estudiante WHERE E.id_estudiante = " .$id;

@@ -143,7 +143,7 @@
 					<a href="../php/actividades/actividad_controler.php?id=<?=$value['idenm'];?>&delete&img=<?=$value['imagen'];?>">ELIMINAR</a>
 				</div>
 				<div class="opciones" style="float: right;">
-					<a href="editar_actividad.php?id=<?=$value['idenm'];?>">EDITAR</a>
+					<a href="editar_actividad.php?id=<?=$value['idenm'];?>&idp=<?=$value['id_actividad']?>">EDITAR</a>
 				</div>
 				<?php } ?>
 			</div>

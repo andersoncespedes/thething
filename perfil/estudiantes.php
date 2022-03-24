@@ -271,7 +271,15 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre de la vacuna</label>
-								<input type="text" name="nombre_vacuna" maxlength = "20"  class="form-control" placeholder="Nombre" style="color: black !important;" required>
+								<select class = "form-control" name="nombre_vacuna">
+									<option value = "Sputnik V">Sputnik V</option>
+									<option value = "CoronaVac">CoronaVac</option>
+									<option value = "Vero Cell">Vero Cell</option>
+									<option value = "Abdala">Abdala</option>
+									<option value = "Sputnik Light">Sputnik Light</option>
+
+								</select>
+								
 							</div>
 							</div>
 							<div class="col-md-12">
@@ -281,15 +289,41 @@
 							</div>
 							</div>
 							<div class="col-md-12">
+								<div class="form-group">
+								<label> Nombre de la vacuna</label>
+								<select class = "form-control" name="nombre_vacuna2">
+									<option value = "Sputnik V">Sputnik V</option>
+									<option value = "CoronaVac">CoronaVac</option>
+									<option value = "Vero Cell">Vero Cell</option>
+									<option value = "Abdala">Abdala</option>
+									<option value = "Sputnik Light">Sputnik Light</option>
+
+								</select>
+							</div>
+							</div>
+							<div class="col-md-12">
 							<div class="form-group">
 								<label>Segunda dosis</label>
-								<input type="date" name="segunda_dosis" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="date" name="segunda_dosis" maxlength = "20" id="cedula" class="form-control" placeholder="Cedula" style="color: black !important;" >
+							</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+								<label> Nombre de la vacuna</label>
+								<select class = "form-control" name="nombre_vacuna3">
+									<option value = "Sputnik V">Sputnik V</option>
+									<option value = "CoronaVac">CoronaVac</option>
+									<option value = "Vero Cell">Vero Cell</option>
+									<option value = "Abdala">Abdala</option>
+									<option value = "Sputnik Light">Sputnik Light</option>
+
+								</select>
 							</div>
 							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Tercera dosis</label>
-								<input type="date" name="tercera_dosis" maxlength = "20"  class="form-control" placeholder="Cedula" style="color: black !important;" required>
+								<input type="date" name="tercera_dosis" maxlength = "20"  class="form-control" placeholder="Cedula" style="color: black !important;" >
 							</div>
 							</div>
 						
@@ -504,7 +538,9 @@
 							<tr class="bg-pboots">
 								<th>NOMBRE DE LA VACUNA</th>
 								<th>PRIMERA DOSIS</th>
+								<th>NOMBRE DE LA VACUNA</th>
 								<th>SEGUNDA DOSIS</th>
+								<th>NOMBRE DE LA VACUNA</th>
 								<th>TERCERA DOSIS</th>
 								<th>OPCION</th>				
 							</tr>
@@ -516,7 +552,9 @@
 						<tr class="elsegundo" style="text-align: center;">
 							<td><?php echo $value['nombre_vacuna'];?></td>
 							<td><?php echo $value['fecha_primera_d'];?></td>
+							<td><?php echo $value['nombre_vacuna2'];?></td>
 							<td><?php echo $value['fecha_segunda_d'];?></td>
+							<td><?php echo $value['nombre_vacuna3'];?></td>
 							<td><?php echo $value['fecha_tercera_d'];?></td>		
 							<td><a href="../php/estudiantes/estudiante_controler.php?delete_v&id=<?=$value['id_estudiante'];?>" class="btn btn-warning">ELIMINAR</a></td>
 						</tr>

@@ -25,6 +25,8 @@
 			$correo     	  = $maestro_a[0]['correo'];
 			$nacimiento       = $maestro_a[0]['nacimiento'];
 			$direccion     	  = $maestro_a[0]['direccion'];
+			$servicio     	  = $maestro_a[0]['servicio'];
+
 		}
 	?>
 
@@ -185,7 +187,12 @@
 								<input type="text" name="correo" maxlength = "20" id="correo" class="form-control" placeholder="example@example.com" value="<?=$correo?>" style="color: black !important;" required>
 							</div>
 							</div>
-						
+								<div class="col-md-12">
+							<div class="form-group">
+								<label>Años de servicio</label>
+								<input type="text" name="aos_s" id="servicio" class="form-control" placeholder="1990" style="color: black !important;" value="<?=$servicio?>"  required>
+							</div>
+							</div>
 							<div class="col-md-12">
 							<div class="form-group">
 								<label>Fecha de naciomiento</label>

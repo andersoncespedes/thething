@@ -53,7 +53,7 @@
 		
 		public function setEditMaestro($data){
 		
-				$query  = "UPDATE maestro SET nombres = '".$data['nombre']."', apellidos = '".$data['apellido']."', cedula = '".$data['cedula']."', correo = '".$data['correo']."', nacimiento = '".$data['nacimiento']."', direccion = '".$data['direccion']."' WHERE id_maestro =" .$data['id_m'];
+				$query  = "UPDATE maestro SET nombres = '".$data['nombre']."', apellidos = '".$data['apellido']."', cedula = '".$data['cedula']."', correo = '".$data['correo']."', nacimiento = '".$data['nacimiento']."', direccion = '".$data['direccion']."', servicio = '".$data['aos_s']."'WHERE id_maestro =" .$data['id_m'];
 				$result = mysqli_query($this->link, $query);
 				if ($result) {
 					return true;

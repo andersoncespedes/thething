@@ -37,6 +37,10 @@
 
 
 		}
+		include "../php/estudiantes/estudiante.php";
+		$estudi = new estudiante();
+		$estud = $estudi->getActEst($_GET['idp']);
+
 
 	
 ?>
@@ -111,8 +115,18 @@
 							<input type="number" name="integrantes" value="<?=$integrant;?>" class="form-control">
 							</div>
 						</div>
+
 							</select>FECHA
 							<input type="date" name="fecha" class="form-control" value="<?=$fecha;?>">
+								<h2>PARTICIPANTES</h2>
+							<div class="form-check" style = "margin-bottom:5px;">
+								<?php $d =0; foreach($estud as $column => $value){ ?>
+						  		<input class="form-check-input" type="checkbox" value="<?=$value['id_estudiante'] ?>" name = "<?=$d++;?>" checked>
+  								<label class="form-check-label">
+   							 	<?=$value['nombres'] ." " .$value['apellidos']; ?><br>
+ 								 </label>
+								  <?php } ?>
+							</div>
 							<input type="submit" name="editar" value="EDITAR" class="btn btn-warning" style="width: 100%;">
 						</form>
 					</div>
