@@ -8,6 +8,8 @@
 		
 		if(isset($_GET['id'])){
 			$vacuna = $estudiantes->getVacunaById($_GET['id']);
+			$nombrevacuna = $estudiantes->getVacuna();
+
 			$estudiant = $estudiantes->getEstudianteById($_GET['id']);
 		}
 	
@@ -271,13 +273,11 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre de la vacuna</label>
-								<select class = "form-control" name="nombre_vacuna">
-									<option value = "Sputnik V">Sputnik V</option>
-									<option value = "CoronaVac">CoronaVac</option>
-									<option value = "Vero Cell">Vero Cell</option>
-									<option value = "Abdala">Abdala</option>
-									<option value = "Sputnik Light">Sputnik Light</option>
-
+								<label>Grado </label>
+								<select class = "form-control" name = "nombre_vacuna">
+								<?php foreach ($nombrevacuna as $key => $value) {?>
+									<option value = "<?=$value['nombvacuna']?>"><?= $value['nombvacuna']?></option>
+								<?php } ?>
 								</select>
 								
 							</div>
@@ -291,13 +291,11 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre de la vacuna</label>
-								<select class = "form-control" name="nombre_vacuna2">
-									<option value = "Sputnik V">Sputnik V</option>
-									<option value = "CoronaVac">CoronaVac</option>
-									<option value = "Vero Cell">Vero Cell</option>
-									<option value = "Abdala">Abdala</option>
-									<option value = "Sputnik Light">Sputnik Light</option>
-
+								
+								<select class = "form-control" name = "nombre_vacuna2">
+								<?php foreach ($nombrevacuna as $key => $value) {?>
+									<option value = "<?=$value['nombvacuna']?>"><?= $value['nombvacuna']?></option>
+								<?php } ?>
 								</select>
 							</div>
 							</div>
@@ -310,13 +308,10 @@
 							<div class="col-md-12">
 								<div class="form-group">
 								<label> Nombre de la vacuna</label>
-								<select class = "form-control" name="nombre_vacuna3">
-									<option value = "Sputnik V">Sputnik V</option>
-									<option value = "CoronaVac">CoronaVac</option>
-									<option value = "Vero Cell">Vero Cell</option>
-									<option value = "Abdala">Abdala</option>
-									<option value = "Sputnik Light">Sputnik Light</option>
-
+								<select class = "form-control" name = "nombre_vacuna3">
+							<?php foreach ($nombrevacuna as $key => $value) {?>
+									<option value = "<?=$value['nombvacuna']?>"><?= $value['nombvacuna']?></option>
+								<?php } ?>
 								</select>
 							</div>
 							</div>

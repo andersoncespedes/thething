@@ -23,6 +23,17 @@
 			array_pop($data);
 			return $data;	
 		}
+		public function getVacuna()
+		{
+			$query  = "SELECT * FROM nombre_vacuna";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			rsort($data);
+			array_pop($data);
+			return $data;	
+		}
+
 
 		public function newEstudiante($data)
 		{

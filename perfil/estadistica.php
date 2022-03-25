@@ -9,8 +9,11 @@
 		$estadistica_estu = $estadistica->getUserEst();
 		$estadistica_estud = $estadistica->getUserEstud();
 		$estadistica_estudiante = $estadistica->getEstadisticaByEstudiante();
+		$estadistica_vacuna = $estadistica->getEstadisticaByVacuna();
 		$estudiante_sexo = $estadistica->getEstudianteBySexo();
 		$studiannim = $estadistica->getEstudNum();
+		$vacunanum = $estadistica->getVacuNum();
+
 		$tamaño = 4;
 		$begin  = ($_GET['pag'] - 1) * $tamaño;
 		$estadistica_integ = $estadistica->getEstadisticaByInteg($tamaño, $begin);
@@ -212,7 +215,7 @@
 						<hr class="stylerf">
 					</div>
 				<div style="width: 100%;display: flex; flex-wrap: wrap;">
-				<div style="width: 40%; margin: auto; text-align: right;">
+				<div style="width: 20%; margin: auto; text-align: right;">
 				<h3>Grados:</h3><br>
 							<?php 
 					if (count($estadistica_estudiante)>0) {
@@ -227,7 +230,7 @@
 		?>
 				
 			</div>
-				<div style="width: 60%;">
+				<div style="width: 80%;">
 						<canvas id="canvas4"  style=""></canvas>	
 					</div>
 			
@@ -235,7 +238,8 @@
 			</div>
 			
 			</div>
-			<div class="wall-p" >
+			<div style = "width: 100%; display:flex; flew-wrap:wrap;">
+			<div class="wall-p" style = "width:50%;" >
 					<div class="title-m">
 						<h2>ESTADISTICA DE SEXOS</h2>	
 						<hr class="stylerf">
@@ -256,13 +260,50 @@
 		?>
 				
 			</div>
+	</div>
 				<div style="width: 60%;">
 						<canvas id="chart-area"  style=""></canvas>	
 					</div>
 			
 			</div>
+			<div class="wall-p" style = "width:50%;" >
+					<div class="title-m">
+						<h2>ESTADISTICA DE VACUNAS</h2>	
+						<hr class="stylerf">
+					</div>
+				<div style="width: 100%;display: flex; flex-wrap: wrap;">
+				<div style="width: 40%; margin: auto; text-align: right;">
+				<h3>Vacuna:</h3><br>
+							<?php 
+					if (count($estadistica_vacuna)>0) {
+						foreach ($estadistica_vacuna as $column => $value) {
+
+							?>
+							 
+						<?php echo $value['nombre_vacuna']. ' = ' .$value['num_est'] .' (' .intval(($value['num_est']) * 100 / $vacunanum). '%)'; ?><br>
+				<?php 
+		}
+		} 
+		?>
+				
+			</div>
+	</div>
+				<div style="width: 60%;">
+						<canvas id="chart-area1"  style=""></canvas>	
+					</div>
+			
+			</div>
+			</div>
 			</div>
 			
+	</div>
+	
+	</div>
+
+	</div>
+	</div>
+	
+	
 			</div>
 		</main>
 
@@ -347,6 +388,23 @@
 					<?php $i++; } ?>
 					
 			];
+			var doughnutData1 = [<?php 
+						$color = ["#F7464A","#46BFBD","#FDB45C","#949FB1","#4D5360"];
+						$i 	   = 0;
+					foreach ($estadistica_vacuna as $column => $value) { ?>
+				{
+					
+					value: <?=$value['num_est']?>,
+					color: '<?=$color[$i]?>',
+					highlight: '<?=$color[$i]?>',
+					label: '<?=$value['nombre_vacuna']?>',
+
+				
+					
+				},
+					<?php $i++; } ?>
+					
+			];
 	var barChartData1 = {
 		labels : [
 					<?php 
@@ -417,6 +475,40 @@
 					<?php $i++; } ?>
 					
 			];
+			var pieData1 = [<?php 
+						
+						$i 	   = 0;
+					foreach ($estadistica_n as $column => $value) { ?>
+				{
+					
+					value: <?=$value['nomsum']?>,
+					color: '<?=$color[$i]?>',
+					highlight: '<?=$color[$i]?>',
+					label: '<?=$value['maes_res']?>',
+
+				
+					
+				},
+					<?php $i++; } ?>
+					
+			];
+					var pieData1 = [<?php 
+						
+						$i 	   = 0;
+					foreach ($estadistic as $column => $value) { ?>
+				{
+					
+					value: <?=$value['suma']?>,
+					color: '<?=$color[$i]?>',
+					highlight: '<?=$color[$i]?>',
+					label: '<?=$value['tipo_act']?>',
+
+				
+					
+				},
+					<?php $i++; } ?>
+					
+			];
 
 
 	window.onload = function(){
@@ -434,6 +526,8 @@
 				window.myPie = new Chart(ctx2).Pie(pieData1);
 				var ctx9 = document.getElementById("chart-area").getContext("2d");
 				window.myDoughnut = new Chart(ctx9).Doughnut(doughnutData, {responsive : true});
+				var ctx10 = document.getElementById("chart-area1").getContext("2d");
+				window.myDoughnut = new Chart(ctx10).Doughnut(doughnutData1, {responsive : true});
 	}
 	
 

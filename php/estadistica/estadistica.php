@@ -88,7 +88,24 @@
 			return $data;
 
 		}
+		public function getVacuNum()
+		{
+			$query  = "SELECT * FROM vacunacion";
+			$result = mysqli_query($this->link, $query);
+			$data   = mysqli_affected_rows($this->link); 
+			return $data;
+
+		}
 			public function getEstadisticaByN()
+		{
+			$query  = "SELECT * FROM estadistica";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			array_pop($data);
+			return $data;	
+		}
+		public function getEstadisticaByVac()
 		{
 			$query  = "SELECT * FROM estadistica";
 			$result = mysqli_query($this->link, $query);
@@ -138,6 +155,16 @@
 		public function getEstadisticaByEstudiante()
 		{
 			$query  = "SELECT SUM(est_estud) AS num_est, grado FROM estudiante GROUP BY grado";
+			$result = mysqli_query($this->link, $query);
+			$data   = array();	
+			while ($data[] = mysqli_fetch_assoc($result));
+			array_pop($data);
+			return $data;	
+		}
+		
+		public function getEstadisticaByVacuna()
+		{
+			$query  = "SELECT SUM(est_v) AS num_est, nombre_vacuna FROM vacunacion GROUP BY nombre_vacuna";
 			$result = mysqli_query($this->link, $query);
 			$data   = array();	
 			while ($data[] = mysqli_fetch_assoc($result));
