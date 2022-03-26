@@ -1,7 +1,13 @@
 <?php ob_start();
 include "../php/estudiantes/estudiante.php";
 $estudiantes = new estudiante;
-$estudiante = $estudiantes->getEstudiante();
+if (isset($_GET['buscar'])) {
+    $busqueda = $_GET['buscar'];
+    $estudiante = $estudiantes->buscarEstudiantes($busqueda);
+}
+else{
+    $estudiante = $estudiantes->getEstudiante();
+}
 ?>
 <html>
     <head>

@@ -4,7 +4,7 @@
 		$estudiantes = new estudiante;
 		$grado = new grado;
 		$grado = $grado->getGrado();
-		$estudiante = $estudiantes->getEstudiante();
+		
 		
 		if(isset($_GET['id'])){
 			$vacuna = $estudiantes->getVacunaById($_GET['id']);
@@ -13,7 +13,13 @@
 			$estudiant = $estudiantes->getEstudianteById($_GET['id']);
 		}
 	
-		
+		if (isset($_POST['buscar'])) {
+			$busqueda = $_POST['buscar'];
+			$estudiante = $estudiantes->buscarEstudiantes($busqueda);
+		}
+		else{
+			$estudiante = $estudiantes->getEstudiante();
+		}
 
 	?>
 
@@ -421,7 +427,9 @@
 					
 				<hr class="stylerf">
 			</div>
-		
+		<form action = "" method = "POST">
+			<input type = "text" name = "buscar" class="form-control" placeholder="BUSCAR ESTUDIANTE">
+		</form>
 								<table class="table table-striped table-bordered table-hover">
 							<tr class="bg-pboots">
 								<th>NOMBRE</th>
@@ -442,7 +450,6 @@
 							<td><?php echo $value['apellidos'];?></td>
 							<td><?php echo $value['cedula'];?></td>
 							<td><?php echo $value['grado'];?></td>
-							
 							<td><?php echo (date('Y') - $value['nacimiento']);?> Años</td>
 							<td><?php echo $value['sexo'];?></td>	
 							<td><a href="../php/estudiantes/estudiante_controler.php?id=<?=$value['id_estudiante'];?>&delete" class="btn btn-warning">ELIMINAR</a></td>
@@ -457,7 +464,11 @@
 				</tr>
 					</table>
 				<a href="#ventana2" class="btn btn-info" data-toggle="modal" style="display: inline-block;" ><span class="icon-user-plus"></span> Ingresar Estudiante</a>
-				<a href="informe.php" class="btn btn-danger"  style="display: inline-block; " ><span class="icon-user-plus"></span> PDF</a></span>
+				<?php if(isset($_POST['buscar'])){?>
+				<a href="informe.php?buscar=<?=$_POST['buscar']?>" class="btn btn-danger"  style="display: inline-block; " ><span class="icon-user-plus"></span> PDF</a></span>
+				<?php }else{ ?>
+					<a href="informe.php?buscar=<?=$_POST['buscar']?>" class="btn btn-danger"  style="display: inline-block; " ><span class="icon-user-plus"></span> PDF</a></span>
+					<?php } ?>
 				<?php if (isset($_GET['id'])) { ?>
 					<span style="float: right;"><?=$estudiant[0]['nombres'] ." " .$estudiant[0]['apellidos']?>:
 					

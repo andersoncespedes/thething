@@ -179,7 +179,16 @@
 				}
 			}
 		
-		
+			public function buscarEstudiantes($buscar){
+			
+				$query = "SELECT * FROM estudiante WHERE nombres LIKE '%".$buscar."%' OR apellidos LIKE '%".$buscar."%' OR cedula LIKE '%".$buscar."%' OR grado LIKE '%".$buscar."%' OR nacimiento LIKE '%".$buscar."%' OR sexo LIKE '%".$buscar."%'";
+				$result = mysqli_query($this->link, $query);
+				$data = array();
+				while ($data[] = mysqli_fetch_assoc($result));
+				array_pop($data);
+				return $data;
+					
+		}
 		public function validarUser($data){
 			$query = "SELECT * FROM usuario WHERE usuario = '".$data['usuario']."'";
 			$result = mysqli_query($this->link, $query);
